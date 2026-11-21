@@ -1,0 +1,314 @@
+support,itemsets,length
+0.987350126498735,No_Reply,1
+0.931470685293147,Rep_Novice,1
+0.7605873941260587,Rating_High_5,1
+0.7360576394236058,Feedback_Neutral,1
+0.7347376526234738,Engage_Zero,1
+0.45275547244527553,Len_Medium,1
+0.32955670443295565,Len_Long,1
+0.2176878231217688,Len_Short,1
+0.18980310196898031,Feedback_Positive,1
+0.14486855131448687,Engage_Low,1
+0.11797382026179738,Rating_Medium_3_4,1
+0.09327906720932791,Rating_0_Unrated,1
+0.06390936090639093,Engage_High,1
+0.06022439775602244,Rep_Veteran,1
+0.05851941480585194,Feedback_Critical,1
+0.056484435155648445,Engage_Medium,1
+0.9209657903420966,"No_Reply, Rep_Novice",2
+0.7564624353756463,"No_Reply, Rating_High_5",2
+0.7347376526234738,"No_Reply, Feedback_Neutral",2
+0.7347376526234738,"Engage_Zero, Feedback_Neutral",2
+0.7347376526234738,"No_Reply, Engage_Zero",2
+0.7080629193708063,"Rep_Novice, Rating_High_5",2
+0.7001979980200198,"Rep_Novice, Feedback_Neutral",2
+0.6990430095699043,"Rep_Novice, Engage_Zero",2
+0.5752942470575294,"Rating_High_5, Feedback_Neutral",2
+0.5747992520074799,"Rating_High_5, Engage_Zero",2
+0.44742052579474206,"No_Reply, Len_Medium",2
+0.4236607633923661,"Rep_Novice, Len_Medium",2
+0.35408645913540865,"Len_Medium, Feedback_Neutral",2
+0.3532064679353206,"Engage_Zero, Len_Medium",2
+0.34237157628423714,"Rating_High_5, Len_Medium",2
+0.3240567594324057,"No_Reply, Len_Long",2
+0.3015069849301507,"Len_Long, Rep_Novice",2
+0.25206247937520626,"Len_Long, Rating_High_5",2
+0.2158728412715873,"No_Reply, Len_Short",2
+0.2063029369706303,"Len_Short, Rep_Novice",2
+0.2027279727202728,"Len_Long, Feedback_Neutral",2
+0.2025079749202508,"Len_Long, Engage_Zero",2
+0.18336816631833683,"No_Reply, Feedback_Positive",2
+0.17924320756792433,"Len_Short, Feedback_Neutral",2
+0.1790232097679023,"Len_Short, Engage_Zero",2
+0.16615333846661534,"Len_Short, Rating_High_5",2
+0.16422835771642283,"Feedback_Positive, Rep_Novice",2
+0.14789352106478934,"Feedback_Positive, Rating_High_5",2
+0.14266857331426686,"No_Reply, Engage_Low",2
+0.13117368826311737,"Rep_Novice, Engage_Low",2
+0.11505884941150589,"No_Reply, Rating_Medium_3_4",2
+0.1084039159608404,"Rep_Novice, Rating_Medium_3_4",2
+0.1075239247607524,"Rating_High_5, Engage_Low",2
+0.0987240127598724,"Feedback_Positive, Engage_Low",2
+0.08937410625893741,"No_Reply, Rating_0_Unrated",2
+0.08887911120888792,"Rating_0_Unrated, Rep_Novice",2
+0.08585414145858541,"Feedback_Positive, Len_Long",2
+0.08156418435815642,"Feedback_Neutral, Rating_Medium_3_4",2
+0.08128918710812892,"Engage_Zero, Rating_Medium_3_4",2
+0.07589924100758992,"Feedback_Positive, Len_Medium",2
+0.06638433615663844,"Rating_0_Unrated, Feedback_Neutral",2
+0.06594434055659443,"Rating_0_Unrated, Engage_Zero",2
+0.06374436255637443,"Len_Long, Engage_Low",2
+0.05862941370586294,"No_Reply, Rep_Veteran",2
+0.056649433505664946,"Len_Medium, Engage_Low",2
+0.05576944230557694,"No_Reply, Engage_High",2
+0.054174458255417446,"No_Reply, Engage_Medium",2
+0.054174458255417446,"Feedback_Critical, No_Reply",2
+0.05384446155538444,"Engage_High, Rep_Novice",2
+0.05257947420525795,"Feedback_Critical, Rep_Novice",2
+0.05081949180508195,"Len_Medium, Rating_Medium_3_4",2
+0.048124518754812454,"Engage_High, Feedback_Positive",2
+0.047464525354746455,"Rating_0_Unrated, Len_Medium",2
+0.04740952590474095,"Rep_Novice, Engage_Medium",2
+0.04652953470465295,"Rating_High_5, Rep_Veteran",2
+0.04586954130458695,"Len_Long, Rating_Medium_3_4",2
+0.04295457045429546,"Feedback_Positive, Engage_Medium",2
+0.03937960620393796,"Engage_High, Rating_High_5",2
+0.038884611153888464,"Engage_Medium, Rating_High_5",2
+0.03580464195358046,"Engage_High, Len_Long",2
+0.034319656803431964,"Rep_Veteran, Feedback_Neutral",2
+0.03415465845341547,"Rep_Veteran, Engage_Zero",2
+0.03371466285337146,"Feedback_Critical, Engage_Low",2
+0.031184688153118468,"Feedback_Critical, Len_Long",2
+0.7347376526234738,"No_Reply, Engage_Zero, Feedback_Neutral",3
+0.7049829501704983,"No_Reply, Rep_Novice, Rating_High_5",3
+0.6990430095699043,"No_Reply, Rep_Novice, Feedback_Neutral",3
+0.6990430095699043,"No_Reply, Rep_Novice, Engage_Zero",3
+0.6990430095699043,"Rep_Novice, Engage_Zero, Feedback_Neutral",3
+0.5747992520074799,"No_Reply, Rating_High_5, Feedback_Neutral",3
+0.5747992520074799,"No_Reply, Rating_High_5, Engage_Zero",3
+0.5747992520074799,"Rating_High_5, Engage_Zero, Feedback_Neutral",3
+0.547189528104719,"Rep_Novice, Rating_High_5, Feedback_Neutral",3
+0.5468045319546805,"Rating_High_5, Rep_Novice, Engage_Zero",3
+0.4191508084919151,"No_Reply, Rep_Novice, Len_Medium",3
+0.3532064679353206,"No_Reply, Len_Medium, Feedback_Neutral",3
+0.3532064679353206,"Engage_Zero, Len_Medium, Feedback_Neutral",3
+0.3532064679353206,"No_Reply, Engage_Zero, Len_Medium",3
+0.34061159388406115,"No_Reply, Rating_High_5, Len_Medium",3
+0.33747662523374766,"Rep_Novice, Len_Medium, Feedback_Neutral",3
+0.3367616323836762,"Engage_Zero, Rep_Novice, Len_Medium",3
+0.3199318006819932,"Rating_High_5, Rep_Novice, Len_Medium",3
+0.2972170278297217,"No_Reply, Len_Long, Rep_Novice",3
+0.27461225387746124,"Rating_High_5, Len_Medium, Feedback_Neutral",3
+0.27422725772742274,"Rating_High_5, Engage_Zero, Len_Medium",3
+0.24986250137498625,"No_Reply, Len_Long, Rating_High_5",3
+0.23055769442305576,"Len_Long, Rep_Novice, Rating_High_5",3
+0.2045979540204598,"No_Reply, Len_Short, Rep_Novice",3
+0.2025079749202508,"No_Reply, Len_Long, Feedback_Neutral",3
+0.2025079749202508,"Len_Long, Engage_Zero, Feedback_Neutral",3
+0.2025079749202508,"No_Reply, Len_Long, Engage_Zero",3
+0.1912880871191288,"Len_Long, Rep_Novice, Feedback_Neutral",3
+0.19106808931910682,"Len_Long, Rep_Novice, Engage_Zero",3
+0.1790232097679023,"No_Reply, Len_Short, Feedback_Neutral",3
+0.1790232097679023,"Len_Short, Engage_Zero, Feedback_Neutral",3
+0.1790232097679023,"No_Reply, Len_Short, Engage_Zero",3
+0.17143328566714333,"Len_Short, Rep_Novice, Feedback_Neutral",3
+0.17121328786712134,"Len_Short, Rep_Novice, Engage_Zero",3
+0.16598834011659883,"No_Reply, Len_Short, Rating_High_5",3
+0.15955340446595534,"Len_Long, Rating_High_5, Feedback_Neutral",3
+0.15949840501594983,"Rating_High_5, Len_Long, Engage_Zero",3
+0.15905840941590585,"No_Reply, Feedback_Positive, Rep_Novice",3
+0.15757342426575735,"Len_Short, Rep_Novice, Rating_High_5",3
+0.14492355076449234,"No_Reply, Feedback_Positive, Rating_High_5",3
+0.14112858871411285,"Len_Short, Rating_High_5, Feedback_Neutral",3
+0.14107358926410735,"Rating_High_5, Len_Short, Engage_Zero",3
+0.12924870751292486,"No_Reply, Rep_Novice, Engage_Low",3
+0.12699373006269937,"Feedback_Positive, Rep_Novice, Rating_High_5",3
+0.10686393136068639,"No_Reply, Rating_High_5, Engage_Low",3
+0.1058739412605874,"No_Reply, Rep_Novice, Rating_Medium_3_4",3
+0.0983390166098339,"No_Reply, Feedback_Positive, Engage_Low",3
+0.0967990320096799,"Rating_High_5, Rep_Novice, Engage_Low",3
+0.0886041139588604,"Feedback_Positive, Rep_Novice, Engage_Low",3
+0.08552414475855241,"No_Reply, Rating_0_Unrated, Rep_Novice",3
+0.08271917280827192,"No_Reply, Feedback_Positive, Len_Long",3
+0.08128918710812892,"No_Reply, Feedback_Neutral, Rating_Medium_3_4",3
+0.08128918710812892,"Feedback_Neutral, Engage_Zero, Rating_Medium_3_4",3
+0.08128918710812892,"No_Reply, Engage_Zero, Rating_Medium_3_4",3
+0.07908920910790893,"Rating_High_5, Feedback_Positive, Engage_Low",3
+0.07644923550764493,"Feedback_Neutral, Rep_Novice, Rating_Medium_3_4",3
+0.07617423825761742,"Rep_Novice, Engage_Zero, Rating_Medium_3_4",3
+0.07386426135738643,"Feedback_Positive, Len_Long, Rep_Novice",3
+0.07342426575734243,"No_Reply, Feedback_Positive, Len_Medium",3
+0.06803431965680343,"Feedback_Positive, Len_Long, Rating_High_5",3
+0.06594434055659443,"No_Reply, Rating_0_Unrated, Feedback_Neutral",3
+0.06594434055659443,"Rating_0_Unrated, Engage_Zero, Feedback_Neutral",3
+0.06594434055659443,"No_Reply, Rating_0_Unrated, Engage_Zero",3
+0.06539434605653943,"Feedback_Positive, Rep_Novice, Len_Medium",3
+0.06434935650643493,"Rating_0_Unrated, Rep_Novice, Feedback_Neutral",3
+0.06390936090639093,"Rating_0_Unrated, Rep_Novice, Engage_Zero",3
+0.06335936640633594,"No_Reply, Len_Long, Engage_Low",3
+0.058794412055879444,"Rating_High_5, Feedback_Positive, Len_Medium",3
+0.05747442525574744,"Len_Long, Rep_Novice, Engage_Low",3
+0.055219447805521946,"No_Reply, Len_Medium, Engage_Low",3
+0.05120448795512045,"Rep_Novice, Len_Medium, Engage_Low",3
+0.04960950390496095,"No_Reply, Len_Medium, Rating_Medium_3_4",3
+0.048949510504894954,"Rating_High_5, Len_Long, Engage_Low",3
+0.04889451105488945,"Feedback_Critical, No_Reply, Rep_Novice",3
+0.047299527004729953,"No_Reply, Engage_High, Rep_Novice",3
+0.047244527554724455,"Rep_Novice, Len_Medium, Rating_Medium_3_4",3
+0.045759542404575956,"No_Reply, Rating_High_5, Rep_Veteran",3
+0.04564954350456495,"No_Reply, Rating_0_Unrated, Len_Medium",3
+0.045374546254537455,"Rep_Novice, No_Reply, Engage_Medium",3
+0.04504454955450445,"Rating_0_Unrated, Rep_Novice, Len_Medium",3
+0.04427455725442746,"No_Reply, Len_Long, Rating_Medium_3_4",3
+0.043339566604333954,"No_Reply, Engage_High, Feedback_Positive",3
+0.042019579804201956,"Feedback_Positive, Len_Medium, Engage_Low",3
+0.04168958310416896,"No_Reply, Feedback_Positive, Engage_Medium",3
+0.04152458475415246,"Len_Long, Rep_Novice, Rating_Medium_3_4",3
+0.04080959190408096,"Rating_High_5, Len_Medium, Engage_Low",3
+0.040149598504014956,"Engage_High, Feedback_Positive, Rep_Novice",3
+0.03855461445385546,"Feedback_Neutral, Len_Medium, Rating_Medium_3_4",3
+0.03838961610383896,"Engage_Zero, Len_Medium, Rating_Medium_3_4",3
+0.03833461665383346,"Feedback_Positive, Len_Long, Engage_Low",3
+0.03811461885381146,"No_Reply, Engage_Medium, Rating_High_5",3
+0.03668463315366846,"No_Reply, Engage_High, Rating_High_5",3
+0.03547464525354747,"Rep_Novice, Feedback_Positive, Engage_Medium",3
+0.035309646903530965,"Rating_0_Unrated, Len_Medium, Feedback_Neutral",3
+0.035089649103508966,"Engage_High, Feedback_Positive, Rating_High_5",3
+0.035089649103508966,"Engage_Zero, Rating_0_Unrated, Len_Medium",3
+0.03415465845341547,"No_Reply, Rep_Veteran, Feedback_Neutral",3
+0.03415465845341547,"Rep_Veteran, Engage_Zero, Feedback_Neutral",3
+0.03415465845341547,"No_Reply, Rep_Veteran, Engage_Zero",3
+0.03371466285337146,"Feedback_Positive, Engage_Medium, Rating_High_5",3
+0.03316466835331647,"Feedback_Critical, No_Reply, Engage_Low",3
+0.03233967660323397,"Engage_High, Rep_Novice, Rating_High_5",3
+0.03211967880321197,"Rep_Novice, Engage_Medium, Rating_High_5",3
+0.03151468485315147,"No_Reply, Engage_High, Len_Long",3
+0.03101968980310197,"Feedback_Critical, Rep_Novice, Engage_Low",3
+0.6990430095699043,"No_Reply, Rep_Novice, Engage_Zero, Feedback_Neutral",4
+0.5747992520074799,"No_Reply, Rating_High_5, Engage_Zero, Feedback_Neutral",4
+0.5468045319546805,"No_Reply, Rep_Novice, Rating_High_5, Feedback_Neutral",4
+0.5468045319546805,"No_Reply, Rating_High_5, Rep_Novice, Engage_Zero",4
+0.5468045319546805,"Rating_High_5, Rep_Novice, Engage_Zero, Feedback_Neutral",4
+0.3532064679353206,"No_Reply, Engage_Zero, Len_Medium, Feedback_Neutral",4
+0.3367616323836762,"No_Reply, Rep_Novice, Len_Medium, Feedback_Neutral",4
+0.3367616323836762,"Engage_Zero, Rep_Novice, Len_Medium, Feedback_Neutral",4
+0.3367616323836762,"No_Reply, Engage_Zero, Rep_Novice, Len_Medium",4
+0.3185568144318557,"No_Reply, Rating_High_5, Rep_Novice, Len_Medium",4
+0.27422725772742274,"No_Reply, Rating_High_5, Len_Medium, Feedback_Neutral",4
+0.27422725772742274,"Rating_High_5, Engage_Zero, Len_Medium, Feedback_Neutral",4
+0.27422725772742274,"No_Reply, Rating_High_5, Engage_Zero, Len_Medium",4
+0.26152238477615225,"Rating_High_5, Rep_Novice, Len_Medium, Feedback_Neutral",4
+0.26124738752612475,"Rating_High_5, Engage_Zero, Rep_Novice, Len_Medium",4
+0.22901770982290176,"No_Reply, Len_Long, Rep_Novice, Rating_High_5",4
+0.2025079749202508,"No_Reply, Len_Long, Engage_Zero, Feedback_Neutral",4
+0.19106808931910682,"No_Reply, Len_Long, Rep_Novice, Feedback_Neutral",4
+0.19106808931910682,"No_Reply, Len_Long, Rep_Novice, Engage_Zero",4
+0.19106808931910682,"Len_Long, Rep_Novice, Engage_Zero, Feedback_Neutral",4
+0.1790232097679023,"No_Reply, Len_Short, Engage_Zero, Feedback_Neutral",4
+0.17121328786712134,"No_Reply, Len_Short, Rep_Novice, Feedback_Neutral",4
+0.17121328786712134,"Len_Short, Rep_Novice, Engage_Zero, Feedback_Neutral",4
+0.17121328786712134,"No_Reply, Len_Short, Rep_Novice, Engage_Zero",4
+0.15949840501594983,"No_Reply, Len_Long, Rating_High_5, Feedback_Neutral",4
+0.15949840501594983,"No_Reply, Rating_High_5, Len_Long, Engage_Zero",4
+0.15949840501594983,"Rating_High_5, Len_Long, Engage_Zero, Feedback_Neutral",4
+0.15740842591574083,"No_Reply, Len_Short, Rep_Novice, Rating_High_5",4
+0.15042349576504235,"Len_Long, Rep_Novice, Rating_High_5, Feedback_Neutral",4
+0.15036849631503685,"Rating_High_5, Len_Long, Rep_Novice, Engage_Zero",4
+0.14107358926410735,"No_Reply, Len_Short, Rating_High_5, Feedback_Neutral",4
+0.14107358926410735,"Rating_High_5, Len_Short, Engage_Zero, Feedback_Neutral",4
+0.14107358926410735,"No_Reply, Rating_High_5, Len_Short, Engage_Zero",4
+0.13524364756352436,"Len_Short, Rep_Novice, Rating_High_5, Feedback_Neutral",4
+0.13518864811351886,"Len_Short, Rating_High_5, Rep_Novice, Engage_Zero",4
+0.12473875261247387,"No_Reply, Feedback_Positive, Rep_Novice, Rating_High_5",4
+0.09624903750962491,"No_Reply, Rating_High_5, Rep_Novice, Engage_Low",4
+0.08827411725882742,"No_Reply, Feedback_Positive, Rep_Novice, Engage_Low",4
+0.08128918710812892,"No_Reply, Feedback_Neutral, Engage_Zero, Rating_Medium_3_4",4
+0.07897921020789792,"No_Reply, Rating_High_5, Feedback_Positive, Engage_Low",4
+0.07617423825761742,"No_Reply, Feedback_Neutral, Rep_Novice, Rating_Medium_3_4",4
+0.07617423825761742,"Feedback_Neutral, Rep_Novice, Engage_Zero, Rating_Medium_3_4",4
+0.07617423825761742,"No_Reply, Rep_Novice, Engage_Zero, Rating_Medium_3_4",4
+0.07144428555714442,"No_Reply, Feedback_Positive, Len_Long, Rep_Novice",4
+0.07072929270707293,"Rating_High_5, Feedback_Positive, Rep_Novice, Engage_Low",4
+0.06632933670663294,"No_Reply, Feedback_Positive, Len_Long, Rating_High_5",4
+0.06594434055659443,"No_Reply, Rating_0_Unrated, Engage_Zero, Feedback_Neutral",4
+0.06390936090639093,"No_Reply, Rating_0_Unrated, Rep_Novice, Feedback_Neutral",4
+0.06390936090639093,"Rating_0_Unrated, Rep_Novice, Engage_Zero, Feedback_Neutral",4
+0.06390936090639093,"No_Reply, Rating_0_Unrated, Rep_Novice, Engage_Zero",4
+0.06335936640633594,"No_Reply, Feedback_Positive, Rep_Novice, Len_Medium",4
+0.05840941590584094,"Feedback_Positive, Len_Long, Rep_Novice, Rating_High_5",4
+0.05763942360576394,"No_Reply, Rating_High_5, Feedback_Positive, Len_Medium",4
+0.057089429105708946,"No_Reply, Len_Long, Rep_Novice, Engage_Low",4
+0.05015949840501595,"Rating_High_5, Feedback_Positive, Rep_Novice, Len_Medium",4
+0.04999450005499945,"Rep_Novice, No_Reply, Len_Medium, Engage_Low",4
+0.04883951160488395,"No_Reply, Rating_High_5, Len_Long, Engage_Low",4
+0.04614453855461445,"No_Reply, Rep_Novice, Len_Medium, Rating_Medium_3_4",4
+0.043889561104388956,"Rating_High_5, Len_Long, Rep_Novice, Engage_Low",4
+0.043504564954350455,"No_Reply, Rating_0_Unrated, Rep_Novice, Len_Medium",4
+0.04190958090419096,"No_Reply, Feedback_Positive, Len_Medium, Engage_Low",4
+0.04031459685403146,"No_Reply, Rating_High_5, Len_Medium, Engage_Low",4
+0.04020459795402046,"No_Reply, Len_Long, Rep_Novice, Rating_Medium_3_4",4
+0.03838961610383896,"No_Reply, Feedback_Neutral, Len_Medium, Rating_Medium_3_4",4
+0.03838961610383896,"Engage_Zero, Feedback_Neutral, Len_Medium, Rating_Medium_3_4",4
+0.03838961610383896,"No_Reply, Engage_Zero, Len_Medium, Rating_Medium_3_4",4
+0.038224617753822465,"No_Reply, Feedback_Positive, Len_Long, Engage_Low",4
+0.03772962270377296,"Rep_Novice, Feedback_Positive, Len_Medium, Engage_Low",4
+0.036574634253657465,"Rep_Novice, Rating_High_5, Len_Medium, Engage_Low",4
+0.03640963590364096,"No_Reply, Engage_High, Feedback_Positive, Rep_Novice",4
+0.03640963590364096,"Feedback_Neutral, Rep_Novice, Len_Medium, Rating_Medium_3_4",4
+0.03624463755362446,"Engage_Zero, Rep_Novice, Len_Medium, Rating_Medium_3_4",4
+0.035089649103508966,"No_Reply, Rating_0_Unrated, Len_Medium, Feedback_Neutral",4
+0.035089649103508966,"Engage_Zero, Rating_0_Unrated, Len_Medium, Feedback_Neutral",4
+0.035089649103508966,"No_Reply, Engage_Zero, Rating_0_Unrated, Len_Medium",4
+0.03437465625343747,"Rep_Novice, No_Reply, Feedback_Positive, Engage_Medium",4
+0.03415465845341547,"No_Reply, Rep_Veteran, Engage_Zero, Feedback_Neutral",4
+0.03415465845341547,"Rating_0_Unrated, Rep_Novice, Len_Medium, Feedback_Neutral",4
+0.034099659003409964,"Feedback_Positive, Len_Long, Rep_Novice, Engage_Low",4
+0.03393466065339346,"Engage_Zero, Rating_0_Unrated, Rep_Novice, Len_Medium",4
+0.033659663403365965,"Rating_High_5, Feedback_Positive, Len_Medium, Engage_Low",4
+0.033054669453305464,"No_Reply, Feedback_Positive, Engage_Medium, Rating_High_5",4
+0.03288967110328897,"No_Reply, Engage_High, Feedback_Positive, Rating_High_5",4
+0.03145968540314597,"Rep_Novice, No_Reply, Engage_Medium, Rating_High_5",4
+0.03085469145308547,"Rating_High_5, Feedback_Positive, Len_Long, Engage_Low",4
+0.03052469475305247,"Feedback_Critical, No_Reply, Rep_Novice, Engage_Low",4
+0.03046969530304697,"No_Reply, Engage_High, Rep_Novice, Rating_High_5",4
+0.5468045319546805,"No_Reply, Rating_High_5, Rep_Novice, Engage_Zero, Feedback_Neutral",5
+0.3367616323836762,"No_Reply, Len_Medium, Rep_Novice, Engage_Zero, Feedback_Neutral",5
+0.27422725772742274,"No_Reply, Rating_High_5, Len_Medium, Engage_Zero, Feedback_Neutral",5
+0.26124738752612475,"No_Reply, Rating_High_5, Len_Medium, Rep_Novice, Feedback_Neutral",5
+0.26124738752612475,"Rating_High_5, Len_Medium, Rep_Novice, Engage_Zero, Feedback_Neutral",5
+0.26124738752612475,"No_Reply, Rating_High_5, Len_Medium, Rep_Novice, Engage_Zero",5
+0.19106808931910682,"No_Reply, Rep_Novice, Len_Long, Engage_Zero, Feedback_Neutral",5
+0.17121328786712134,"No_Reply, Len_Short, Rep_Novice, Engage_Zero, Feedback_Neutral",5
+0.15949840501594983,"No_Reply, Rating_High_5, Len_Long, Engage_Zero, Feedback_Neutral",5
+0.15036849631503685,"No_Reply, Rating_High_5, Rep_Novice, Len_Long, Feedback_Neutral",5
+0.15036849631503685,"No_Reply, Rating_High_5, Rep_Novice, Len_Long, Engage_Zero",5
+0.15036849631503685,"Rating_High_5, Rep_Novice, Len_Long, Engage_Zero, Feedback_Neutral",5
+0.14107358926410735,"No_Reply, Len_Short, Rating_High_5, Engage_Zero, Feedback_Neutral",5
+0.13518864811351886,"No_Reply, Len_Short, Rating_High_5, Rep_Novice, Feedback_Neutral",5
+0.13518864811351886,"Len_Short, Rating_High_5, Rep_Novice, Engage_Zero, Feedback_Neutral",5
+0.13518864811351886,"No_Reply, Len_Short, Rating_High_5, Rep_Novice, Engage_Zero",5
+0.07617423825761742,"No_Reply, Rep_Novice, Engage_Zero, Rating_Medium_3_4, Feedback_Neutral",5
+0.07061929380706193,"No_Reply, Rating_High_5, Rep_Novice, Feedback_Positive, Engage_Low",5
+0.06390936090639093,"No_Reply, Rep_Novice, Rating_0_Unrated, Engage_Zero, Feedback_Neutral",5
+0.057144428555714444,"No_Reply, Rating_High_5, Rep_Novice, Len_Long, Feedback_Positive",5
+0.04927950720492795,"No_Reply, Rating_High_5, Len_Medium, Rep_Novice, Feedback_Positive",5
+0.04377956220437795,"No_Reply, Rating_High_5, Rep_Novice, Len_Long, Engage_Low",5
+0.03838961610383896,"No_Reply, Len_Medium, Engage_Zero, Rating_Medium_3_4, Feedback_Neutral",5
+0.037619623803761965,"No_Reply, Len_Medium, Rep_Novice, Feedback_Positive, Engage_Low",5
+0.03624463755362446,"No_Reply, Len_Medium, Rep_Novice, Rating_Medium_3_4, Feedback_Neutral",5
+0.03624463755362446,"Len_Medium, Rep_Novice, Engage_Zero, Rating_Medium_3_4, Feedback_Neutral",5
+0.03624463755362446,"No_Reply, Len_Medium, Rep_Novice, Engage_Zero, Rating_Medium_3_4",5
+0.036189638103618964,"No_Reply, Rating_High_5, Len_Medium, Rep_Novice, Engage_Low",5
+0.035089649103508966,"No_Reply, Len_Medium, Rating_0_Unrated, Engage_Zero, Feedback_Neutral",5
+0.03398966010339897,"No_Reply, Rep_Novice, Len_Long, Feedback_Positive, Engage_Low",5
+0.03393466065339346,"No_Reply, Len_Medium, Rep_Novice, Rating_0_Unrated, Feedback_Neutral",5
+0.03393466065339346,"Len_Medium, Rep_Novice, Rating_0_Unrated, Engage_Zero, Feedback_Neutral",5
+0.03393466065339346,"No_Reply, Len_Medium, Rep_Novice, Rating_0_Unrated, Engage_Zero",5
+0.03360466395336047,"No_Reply, Rating_High_5, Len_Medium, Feedback_Positive, Engage_Low",5
+0.03079969200307997,"No_Reply, Rating_High_5, Len_Long, Feedback_Positive, Engage_Low",5
+0.03002969970300297,"Rating_High_5, Len_Medium, Rep_Novice, Feedback_Positive, Engage_Low",5
+0.26124738752612475,"No_Reply, Rating_High_5, Len_Medium, Rep_Novice, Engage_Zero, Feedback_Neutral",6
+0.15036849631503685,"No_Reply, Rating_High_5, Rep_Novice, Len_Long, Engage_Zero, Feedback_Neutral",6
+0.13518864811351886,"No_Reply, Len_Short, Rating_High_5, Rep_Novice, Engage_Zero, Feedback_Neutral",6
+0.03624463755362446,"No_Reply, Len_Medium, Rep_Novice, Engage_Zero, Rating_Medium_3_4, Feedback_Neutral",6
+0.03393466065339346,"No_Reply, Len_Medium, Rep_Novice, Rating_0_Unrated, Engage_Zero, Feedback_Neutral",6

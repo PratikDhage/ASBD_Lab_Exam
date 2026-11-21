@@ -1,0 +1,82 @@
+itemset,itemset_size,support_count,support_ratio
+No_Reply,1,17952,0.9874
+Rep_Novice,1,16936,0.9315
+Rating_High_5,1,13829,0.7606
+Feedback_Neutral,1,13383,0.7361
+Len_Medium,1,8232,0.4528
+Len_Long,1,5992,0.3296
+Len_Short,1,3958,0.2177
+Feedback_Positive,1,3451,0.1898
+Engage_Low,1,2634,0.1449
+Rating_Medium_3_4,1,2145,0.118
+"No_Reply, Rep_Novice",2,16745,0.921
+"No_Reply, Rating_High_5",2,13754,0.7565
+"Rating_High_5, Rep_Novice",2,12874,0.7081
+"Feedback_Neutral, Rep_Novice",2,12731,0.7002
+"Feedback_Neutral, Rating_High_5",2,10460,0.5753
+"Len_Medium, No_Reply",2,8135,0.4474
+"Len_Medium, Rep_Novice",2,7703,0.4237
+"Feedback_Neutral, Len_Medium",2,6438,0.3541
+"Len_Medium, Rating_High_5",2,6225,0.3424
+"Len_Long, No_Reply",2,5892,0.3241
+"Len_Long, Rep_Novice",2,5482,0.3015
+"Len_Long, Rating_High_5",2,4583,0.2521
+"Len_Short, No_Reply",2,3925,0.2159
+"Len_Short, Rep_Novice",2,3751,0.2063
+"Feedback_Neutral, Len_Long",2,3686,0.2027
+"Feedback_Positive, No_Reply",2,3334,0.1834
+"Feedback_Neutral, Len_Short",2,3259,0.1792
+"Len_Short, Rating_High_5",2,3021,0.1662
+"Feedback_Positive, Rep_Novice",2,2986,0.1642
+"Feedback_Positive, Rating_High_5",2,2689,0.1479
+"Engage_Low, No_Reply",2,2594,0.1427
+"Engage_Low, Rep_Novice",2,2385,0.1312
+"No_Reply, Rating_Medium_3_4",2,2092,0.1151
+"Rating_Medium_3_4, Rep_Novice",2,1971,0.1084
+"Engage_Low, Rating_High_5",2,1955,0.1075
+"Engage_Zero, Feedback_Neutral, No_Reply",3,13359,0.7347
+"No_Reply, Rating_High_5, Rep_Novice",3,12818,0.705
+"Feedback_Neutral, Rating_High_5, Rep_Novice",3,9949,0.5472
+"Len_Medium, No_Reply, Rep_Novice",3,7621,0.4192
+"Len_Medium, No_Reply, Rating_High_5",3,6193,0.3406
+"Feedback_Neutral, Len_Medium, Rep_Novice",3,6136,0.3375
+"Len_Medium, Rating_High_5, Rep_Novice",3,5817,0.3199
+"Len_Long, No_Reply, Rep_Novice",3,5404,0.2972
+"Feedback_Neutral, Len_Medium, Rating_High_5",3,4993,0.2746
+"Len_Long, No_Reply, Rating_High_5",3,4543,0.2499
+"Len_Long, Rating_High_5, Rep_Novice",3,4192,0.2306
+"Len_Short, No_Reply, Rep_Novice",3,3720,0.2046
+"Feedback_Neutral, Len_Long, Rep_Novice",3,3478,0.1913
+"Feedback_Neutral, Len_Short, Rep_Novice",3,3117,0.1714
+"Len_Short, No_Reply, Rating_High_5",3,3018,0.166
+"Feedback_Neutral, Len_Long, Rating_High_5",3,2901,0.1596
+"Feedback_Positive, No_Reply, Rep_Novice",3,2892,0.1591
+"Len_Short, Rating_High_5, Rep_Novice",3,2865,0.1576
+"Feedback_Positive, No_Reply, Rating_High_5",3,2635,0.1449
+"Feedback_Neutral, Len_Short, Rating_High_5",3,2566,0.1411
+"Engage_Low, No_Reply, Rep_Novice",3,2350,0.1292
+"Feedback_Positive, Rating_High_5, Rep_Novice",3,2309,0.127
+"Engage_Low, No_Reply, Rating_High_5",3,1943,0.1069
+"No_Reply, Rating_Medium_3_4, Rep_Novice",3,1925,0.1059
+"Engage_Zero, Feedback_Neutral, No_Reply, Rep_Novice",4,12710,0.699
+"Engage_Zero, Feedback_Neutral, No_Reply, Rating_High_5",4,10451,0.5748
+"Engage_Zero, Feedback_Neutral, Len_Medium, No_Reply",4,6422,0.3532
+"Len_Medium, No_Reply, Rating_High_5, Rep_Novice",4,5792,0.3186
+"Feedback_Neutral, Len_Medium, Rating_High_5, Rep_Novice",4,4755,0.2615
+"Len_Long, No_Reply, Rating_High_5, Rep_Novice",4,4164,0.229
+"Engage_Zero, Feedback_Neutral, Len_Long, No_Reply",4,3682,0.2025
+"Engage_Zero, Feedback_Neutral, Len_Short, No_Reply",4,3255,0.179
+"Len_Short, No_Reply, Rating_High_5, Rep_Novice",4,2862,0.1574
+"Feedback_Neutral, Len_Long, Rating_High_5, Rep_Novice",4,2735,0.1504
+"Feedback_Neutral, Len_Short, Rating_High_5, Rep_Novice",4,2459,0.1352
+"Feedback_Positive, No_Reply, Rating_High_5, Rep_Novice",4,2268,0.1247
+"Engage_Zero, Feedback_Neutral, No_Reply, Rating_High_5, Rep_Novice",5,9942,0.5468
+"Engage_Zero, Feedback_Neutral, Len_Medium, No_Reply, Rep_Novice",5,6123,0.3368
+"Engage_Zero, Feedback_Neutral, Len_Medium, No_Reply, Rating_High_5",5,4986,0.2742
+"Engage_Zero, Feedback_Neutral, Len_Long, No_Reply, Rep_Novice",5,3474,0.1911
+"Engage_Zero, Feedback_Neutral, Len_Short, No_Reply, Rep_Novice",5,3113,0.1712
+"Engage_Zero, Feedback_Neutral, Len_Long, No_Reply, Rating_High_5",5,2900,0.1595
+"Engage_Zero, Feedback_Neutral, Len_Short, No_Reply, Rating_High_5",5,2565,0.1411
+"Engage_Zero, Feedback_Neutral, Len_Medium, No_Reply, Rating_High_5, Rep_Novice",6,4750,0.2612
+"Engage_Zero, Feedback_Neutral, Len_Long, No_Reply, Rating_High_5, Rep_Novice",6,2734,0.1504
+"Engage_Zero, Feedback_Neutral, Len_Short, No_Reply, Rating_High_5, Rep_Novice",6,2458,0.1352

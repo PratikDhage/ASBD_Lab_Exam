@@ -1,0 +1,1533 @@
+% ============================================================================
+%  ASBD Lab Report — Descriptive and Predictive Analytics
+%  Recipe Reviews and User Feedback Dataset (UCI)
+%  Author: Pratik Dhage | IIITDM Kancheepuram
+% ============================================================================
+\documentclass[12pt,a4paper]{article}
+
+% ── Packages ────────────────────────────────────────────────────────────────
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage[table]{xcolor}
+\usepackage{hyperref}
+\usepackage[most]{tcolorbox}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{setspace}
+\usepackage{parskip}
+\usepackage{pdflscape}
+\usepackage{makecell}
+
+% ── Colours ─────────────────────────────────────────────────────────────────
+\definecolor{iiitblue}{RGB}{0,51,102}
+\definecolor{accentgold}{RGB}{204,153,0}
+\definecolor{rulegreen}{RGB}{0,100,0}
+\definecolor{rulered}{RGB}{153,0,0}
+\definecolor{boxbg}{RGB}{245,248,255}
+\definecolor{cfiblue}{RGB}{20,60,120}
+\definecolor{knngreen}{RGB}{0,80,40}
+
+% ── Hyperref setup ──────────────────────────────────────────────────────────
+\hypersetup{
+    colorlinks=true,
+    linkcolor=iiitblue,
+    citecolor=iiitblue,
+    urlcolor=iiitblue
+}
+
+% ── tcolorbox styles ───────────────────────────────────────────────────────
+\newtcolorbox{rulebox}[1][]{
+    colback=boxbg, colframe=iiitblue, fonttitle=\bfseries\large,
+    boxrule=1.2pt, arc=4pt, left=8pt, right=8pt, top=6pt, bottom=6pt,
+    title={#1}
+}
+
+\newtcolorbox{cfibox}[1][]{
+    colback=white, colframe=cfiblue, fonttitle=\bfseries\large,
+    boxrule=1.5pt, arc=4pt, left=8pt, right=8pt, top=6pt, bottom=6pt,
+    title={#1}
+}
+
+\newtcolorbox{bestbox}[1][]{
+    colback=green!5, colframe=knngreen, fonttitle=\bfseries\large,
+    boxrule=1.5pt, arc=5pt, left=10pt, right=10pt, top=8pt, bottom=8pt,
+    title={#1}
+}
+
+\newtcolorbox{findingbox}[1][]{
+    colback=yellow!5, colframe=accentgold, fonttitle=\bfseries,
+    boxrule=1pt, arc=3pt, left=6pt, right=6pt, top=4pt, bottom=4pt,
+    title={#1}
+}
+
+% ── Helper: safe image inclusion ────────────────────────────────────────────
+\newcommand{\safeimg}[3][0.85]{%
+    \IfFileExists{#2}{%
+        \includegraphics[width=#1\textwidth]{#2}%
+    }{%
+        \framebox[\textwidth]{\parbox{0.9\textwidth}{\centering\vspace{2cm}%
+        \textit{Image not found:} \texttt{#2}\\[4pt]%
+        \small Please copy \texttt{#3} to the \texttt{images/} folder.%
+        \vspace{2cm}}}%
+    }%
+}
+
+% ── Header / Footer ────────────────────────────────────────────────────────
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textcolor{iiitblue}{ASBD Lab Report}}
+\fancyhead[R]{\small\textcolor{iiitblue}{Pratik Dhage}}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% ── Section formatting ─────────────────────────────────────────────────────
+\titleformat{\section}{\Large\bfseries\color{iiitblue}}{\thesection}{1em}{}
+\titleformat{\subsection}{\large\bfseries\color{iiitblue!80!black}}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\normalsize\bfseries\color{iiitblue!60!black}}{\thesubsubsection}{1em}{}
+
+\setstretch{1.15}
+
+% ════════════════════════════════════════════════════════════════════════════
+\begin{document}
+
+% ╔══════════════════════════════════════════════════════════════════════════╗
+% ║                          COVER PAGE                                    ║
+% ╚══════════════════════════════════════════════════════════════════════════╝
+\begin{titlepage}
+\begin{center}
+
+\vspace*{0.5cm}
+
+% ── Institution ──
+{\LARGE\bfseries\textcolor{iiitblue}{Indian Institute of Information Technology\\[4pt]
+Design and Manufacturing, Kancheepuram}}
+
+\vspace{6pt}
+{\large Department of Computer Science and Engineering}
+
+\vspace{4pt}
+\textcolor{accentgold}{\rule{0.6\textwidth}{1.5pt}}
+
+\vspace{1.2cm}
+
+% ── Course info ──
+{\Large\textbf{Analytics and Systems of Big Data}}\\[6pt]
+{\large Course Code: \texttt{[COURSE\_CODE]}}\\[6pt]
+{\large Lab Examination Report}
+
+\vspace{1.2cm}
+
+% ── Title ──
+\begin{tcolorbox}[colback=iiitblue!5, colframe=iiitblue, boxrule=1pt,
+    arc=5pt, width=0.92\textwidth]
+\centering
+{\LARGE\bfseries\textcolor{iiitblue}{Descriptive and Predictive Analytics on\\[6pt]
+Recipe Reviews and User Feedback Dataset}}
+\end{tcolorbox}
+
+\vspace{1.5cm}
+
+% ── Student details ──
+\begin{tabular}{r l}
+\textbf{Student Name}    & Pratik Dhage \\[4pt]
+\textbf{Roll Number}     & \texttt{[ROLL\_NUMBER]} \\[4pt]
+\textbf{Program}         & B.Tech Computer Science and Engineering \\[4pt]
+\textbf{Academic Year}   & 2026--27 \\[4pt]
+\textbf{Instructor}      & \texttt{[INSTRUCTOR\_NAME]} \\
+\end{tabular}
+
+\vspace{1.5cm}
+
+% ── Dataset & Repo ──
+\textbf{Dataset Source:}\\
+Recipe Reviews and User Feedback Dataset --- UCI Machine Learning Repository\\
+\url{https://archive.ics.uci.edu/dataset/911/recipe+reviews+and+user+feedback+dataset}
+
+\vspace{0.6cm}
+\textbf{GitHub Repository:} \texttt{[GITHUB\_REPO\_URL]}
+
+\vspace{1cm}
+\textcolor{accentgold}{\rule{0.4\textwidth}{1pt}}\\[6pt]
+{\small November 2026}
+
+\end{center}
+\end{titlepage}
+
+% ╔══════════════════════════════════════════════════════════════════════════╗
+% ║                      TABLE OF CONTENTS                                 ║
+% ╚══════════════════════════════════════════════════════════════════════════╝
+\newpage
+\tableofcontents
+\newpage
+
+% ╔══════════════════════════════════════════════════════════════════════════╗
+% ║  1.  PROBLEM STATEMENT AND OBJECTIVES                                  ║
+% ╚══════════════════════════════════════════════════════════════════════════╝
+\section{Problem Statement and Objectives}
+
+\subsection{Problem Statement}
+
+Online recipe platforms generate large volumes of user-generated content comprising star ratings, textual reviews, engagement signals (thumbs-up, thumbs-down, replies), and user reputation metadata. Understanding the latent patterns within this feedback ecosystem is essential for improving recommendation quality, moderating review content, and characterising user behaviour at scale. This project undertakes a comprehensive descriptive and predictive analytics study on the \textbf{Recipe Reviews and User Feedback Dataset} published by the UCI Machine Learning Repository, encompassing 18{,}182 reviews across 100 recipes contributed by 13{,}812 unique users between February 2021 and October 2022.
+
+\subsection{Dataset Source}
+
+\begin{itemize}[nosep]
+    \item \textbf{Name:} Recipe Reviews and User Feedback Dataset
+    \item \textbf{Repository:} UCI Machine Learning Repository
+    \item \textbf{URL:} \url{https://archive.ics.uci.edu/dataset/911/recipe+reviews+and+user+feedback+dataset}
+    \item \textbf{Records:} 18{,}182 reviews \quad|\quad \textbf{Attributes:} 14 original, 34 after feature engineering
+\end{itemize}
+
+\subsection{Objectives}
+
+\begin{enumerate}[nosep]
+    \item \textbf{Descriptive Analytics:} Compute summary statistics, distributional characteristics, correlations, and temporal trends for all numerically and categorically meaningful attributes.
+    \item \textbf{Visualisation:} Produce at least 10 distinct visualisation types with detailed analytical inferences per plot.
+    \item \textbf{Association Rule Mining (FP-Growth):} Discover co-occurrence patterns in discretised review behaviour using the FP-Growth algorithm and interpret high-lift, high-confidence rules.
+    \item \textbf{Classification (KNN):} Build a K-Nearest Neighbours classifier to predict rating categories from review and user features; evaluate across multiple hyperparameter configurations.
+    \item \textbf{Hierarchical Clustering (AGNES):} Segment users into behaviourally distinct clusters using Agglomerative Nesting and profile each cluster.
+    \item \textbf{Closed Frequent Itemset Mining (ACLOSE):} Extract closed frequent itemsets to obtain a compact, lossless representation of frequent patterns with verified correctness against brute-force enumeration.
+    \item \textbf{PySpark Implementation:} Re-implement selected analytics pipelines using Apache Spark (PySpark) to demonstrate Big Data processing capability.
+    \item \textbf{Performance Benchmarking:} Compare Pandas-based and PySpark-based execution across data loading, cleaning, aggregation, and FP-Growth at multiple dataset scales.
+\end{enumerate}
+
+% ╔══════════════════════════════════════════════════════════════════════════╗
+% ║  2.  DATASET DESCRIPTION AND UNDERSTANDING                             ║
+% ╚══════════════════════════════════════════════════════════════════════════╝
+\section{Dataset Description and Understanding}
+
+\subsection{Dataset Overview}
+
+The dataset comprises 18{,}182 records and 14 original attributes spanning recipe metadata, user demographics, review content, ratings, and engagement metrics. After feature engineering, the working dataset was expanded to 34 attributes. Table~\ref{tab:attributes} details the complete attribute catalog along with data types and functional descriptions.
+
+\begin{table}[H]
+\centering
+\caption{Original Dataset Attributes}
+\label{tab:attributes}
+\small
+\begin{tabularx}{\textwidth}{l l X}
+\toprule
+\textbf{Attribute} & \textbf{Type} & \textbf{Description} \\
+\midrule
+\texttt{recipe\_number} & Identifier & Sequential recipe identifier (1--100) \\
+\texttt{recipe\_code}   & Identifier & Alphanumeric recipe code \\
+\texttt{recipe\_name}   & Categorical & Name of the recipe \\
+\texttt{comment\_id}    & Identifier & Unique comment identifier \\
+\texttt{user\_id}       & Identifier & Unique user identifier \\
+\texttt{user\_name}     & Categorical & Display name of the reviewer \\
+\texttt{user\_reputation}& Numerical  & Reputation score of the user (0--520) \\
+\texttt{created\_at}    & Temporal    & Timestamp of review submission \\
+\texttt{reply\_count}   & Numerical   & Number of replies to the review \\
+\texttt{thumbs\_up}     & Numerical   & Count of upvotes received \\
+\texttt{thumbs\_down}   & Numerical   & Count of downvotes received \\
+\texttt{stars}          & Numerical   & Star rating assigned (0--5) \\
+\texttt{best\_score}    & Numerical   & Platform-computed quality score \\
+\texttt{text}           & Text        & Full text of the review \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Key Dataset Characteristics}
+
+\begin{itemize}[nosep]
+    \item \textbf{Unique recipes:} 100 \quad|\quad \textbf{Unique users:} 13{,}812 \quad|\quad \textbf{Unique comments:} 18{,}182
+    \item \textbf{Temporal span:} 11 February 2021 to 14 October 2022 (20 months)
+    \item \textbf{Missing values:} Only 2 missing entries in the \texttt{text} column; all other columns are complete.
+    \item \textbf{Duplicate rows:} 0 \quad|\quad \textbf{Duplicate comment IDs:} 0
+    \item \textbf{Rating distribution:} Heavily right-skewed --- 76.06\% of reviews are 5-star (skewness $= -2.13$).
+    \item \textbf{Engagement:} Total engagement events (thumbs-up + thumbs-down + replies) = 30{,}059; however, 73.47\% of reviews have zero engagement.
+\end{itemize}
+
+\subsection{Attribute Classification for Analytics}
+
+To establish clear analytical boundaries, Table~\ref{tab:attr_class} classifies the attributes into functional analytical roles.
+
+\begin{table}[H]
+\centering
+\caption{Attribute Classification}
+\label{tab:attr_class}
+\small
+\begin{tabular}{l l}
+\toprule
+\textbf{Category} & \textbf{Attributes} \\
+\midrule
+Identifiers    & \texttt{recipe\_number}, \texttt{recipe\_code}, \texttt{comment\_id}, \texttt{user\_id} \\
+Numerical      & \texttt{stars}, \texttt{user\_reputation}, \texttt{reply\_count}, \texttt{thumbs\_up}, \texttt{thumbs\_down}, \texttt{best\_score} \\
+Categorical    & \texttt{recipe\_name}, \texttt{user\_name} \\
+Temporal       & \texttt{created\_at} \\
+Text           & \texttt{text} \\
+Target         & \texttt{stars} (for classification) \\
+Engagement     & \texttt{thumbs\_up}, \texttt{thumbs\_down}, \texttt{reply\_count} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% ╔══════════════════════════════════════════════════════════════════════════╗
+% ║  3.  DATA PREPROCESSING                                               ║
+% ╚══════════════════════════════════════════════════════════════════════════╝
+\section{Data Preprocessing}
+
+A systematic preprocessing pipeline was applied to transform the raw dataset into analysis-ready formats for each downstream task. The cleaned dataset retains all 18{,}182 records (no rows were dropped) and expands the feature space from 14 to 34 attributes through engineering. Table~\ref{tab:preprocessing} details the exact transformation techniques executed, target attributes, specific methods, and resulting analytical outputs.
+
+\subsection{Preprocessing Pipeline}
+
+\begin{table}[H]
+\centering
+\caption{Preprocessing Steps Applied}
+\label{tab:preprocessing}
+\small
+\begin{tabularx}{\textwidth}{l l l X}
+\toprule
+\textbf{Technique} & \textbf{Attributes} & \textbf{Method} & \textbf{Result} \\
+\midrule
+Missing value handling & \texttt{text} (2 nulls) & Replaced with empty string & 0 nulls remaining \\
+Duplicate detection & All columns & Hash-based row comparison & 0 duplicates found \\
+Timestamp parsing & \texttt{created\_at} & \texttt{pd.to\_datetime} & Extracted \texttt{hour}, \texttt{day\_of\_week}, \texttt{month}, \texttt{year}, \texttt{is\_weekend} \\
+Text length features & \texttt{text} & Character count, word tokenisation & \texttt{text\_length}, \texttt{word\_count} \\
+Engagement aggregation & thumbs\_up/down, reply & Arithmetic combination & \texttt{engagement\_total}, \texttt{net\_thumbs}, \texttt{approval\_ratio} \\
+Rating categorisation & \texttt{stars} & Binning: 0--2 $\to$ Low, 3--4 $\to$ Medium, 5 $\to$ High & \texttt{rating\_cat}, \texttt{rating\_3class} \\
+Reputation binning & \texttt{user\_reputation} & Thresholds: 0=New, 1=Novice, 2--5=Active, $>$5=Veteran & \texttt{reputation\_cat} \\
+Text length binning & \texttt{text\_length} & Tercile boundaries & \texttt{length\_cat}: Short, Medium, Long \\
+Engagement binning & \texttt{engagement\_total} & Thresholds: 0, 1--2, 3--5, $>$5 & \texttt{engagement\_cat} \\
+Feedback sentiment & \texttt{stars} & 0--2$\to$Critical, 3--4$\to$Neutral, 5$\to$Positive & \texttt{feedback\_cat} \\
+Reply categorisation & \texttt{reply\_count} & 0$\to$No\_Reply, $\geq$1$\to$Has\_Reply & \texttt{reply\_cat} \\
+Feature scaling & 9 numerical features & StandardScaler (KNN) & Zero-mean, unit-variance features for KNN \\
+Transaction encoding & 6 categorical features & One-hot binary matrix & 18{,}182 $\times$ 17 binary transaction matrix for ARM \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Analytical Notes on Preprocessing}
+
+\begin{itemize}
+    \item \textbf{Missing values:} Only 2 records (0.011\%) had null \texttt{text}. These were replaced with empty strings rather than dropped, preserving their numerical features for aggregation and classification tasks where text content is not used as a feature.
+    \item \textbf{Outlier retention:} Extreme values in \texttt{user\_reputation} (max = 520, $\mu = 2.16$, $\sigma = 10.01$) and \texttt{thumbs\_up} (max = 106) were retained rather than clipped, as they represent genuine power users whose behaviour is analytically meaningful. The AGNES clustering algorithm later isolated such outliers into their own cluster, validating this decision.
+    \item \textbf{Target leakage prevention:} The \texttt{best\_score} attribute was excluded from the KNN feature set because it is a platform-computed metric that correlates directly with the star rating, introducing target leakage if retained.
+    \item \textbf{Discretisation for ARM:} Continuous attributes were binned into semantically meaningful categories (e.g., reputation tiers, engagement levels, review length categories) to create a 17-item binary transaction matrix suitable for FP-Growth and ACLOSE. This involved 6 categorical attributes: \texttt{rating\_cat}, \texttt{reputation\_cat}, \texttt{length\_cat}, \texttt{engagement\_cat}, \texttt{feedback\_cat}, and \texttt{reply\_cat}.
+\end{itemize}
+
+% ╔══════════════════════════════════════════════════════════════════════════╗
+% ║  4.  DESCRIPTIVE ANALYTICS                                             ║
+% ╚══════════════════════════════════════════════════════════════════════════╝
+\section{Descriptive Analytics}
+
+\subsection{Summary Statistics of Numerical Attributes}
+
+Table~\ref{tab:desc_stats} presents comprehensive summary statistics across all continuous and discrete numerical variables extracted and engineered from the dataset.
+
+\begin{table}[H]
+\centering
+\caption{Descriptive Statistics of Key Numerical Attributes ($n = 18{,}182$)}
+\label{tab:desc_stats}
+\small
+\begin{tabular}{l r r r r r r r r}
+\toprule
+\textbf{Attribute} & \textbf{Mean} & \textbf{Median} & \textbf{Std Dev} & \textbf{Min} & \textbf{Q1} & \textbf{Q3} & \textbf{Skew} & \textbf{Kurt} \\
+\midrule
+stars            & 4.29  & 5.0   & 1.54   & 0   & 5    & 5    & $-2.13$ & 2.97 \\
+user\_reputation & 2.16  & 1.0   & 10.01  & 0   & 1    & 1    & 33.72   & 1565.01 \\
+reply\_count     & 0.01  & 0.0   & 0.14   & 0   & 0    & 0    & 11.28   & 154.60 \\
+thumbs\_up       & 1.09  & 0.0   & 4.20   & 0   & 0    & 0    & 8.41    & 105.08 \\
+thumbs\_down     & 0.55  & 0.0   & 3.47   & 0   & 0    & 0    & 17.89   & 457.09 \\
+best\_score      & 153.16& 100.0 & 141.08 & 0   & 100  & 100  & 3.40    & 11.52 \\
+text\_length     & 199.86& 158.0 & 168.91 & 0   & 88   & 261  & 2.63    & 14.68 \\
+word\_count      & 37.81 & 30.0  & 32.09  & 0   & 16   & 49   & 2.56    & 13.88 \\
+engagement\_total& 1.65  & 0.0   & 6.41   & 0   & 0    & 1    & 8.97    & 120.14 \\
+net\_thumbs      & 0.54  & 0.0   & 4.34   & $-121$& 0  & 0    & $-1.50$ & 181.17 \\
+approval\_ratio  & 0.19  & 0.0   & 0.37   & 0   & 0    & 0    & 1.55    & 0.55 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Key Statistical Observations}
+
+\begin{itemize}
+    \item \textbf{Ratings are extremely left-skewed} (skewness $= -2.13$): the median and mode are both 5.0, with 76.06\% of all reviews being 5-star. This positivity bias is consistent with known patterns in online review platforms where satisfied users are more likely to leave feedback.
+    \item \textbf{User reputation follows a power-law distribution} with kurtosis of 1{,}565, indicating extreme concentration: 93.15\% of users have a reputation of 1 (novice), while a single user has a reputation of 520.
+    \item \textbf{Engagement metrics are zero-inflated:} the median thumbs-up, thumbs-down, and reply count are all 0. Only 26.53\% of reviews receive any engagement at all, suggesting a ``long tail'' pattern where a minority of reviews attract disproportionate community interaction.
+    \item \textbf{Review length shows moderate right skew} ($\text{skewness} = 2.63$) with a mean of 200 characters and median of 158 characters, indicating most reviews are brief but a substantial tail extends to essay-length responses (max = 2{,}689 characters).
+    \item \textbf{Net thumbs} is the only attribute with a negative minimum ($-121$), representing reviews that received substantially more downvotes than upvotes.
+\end{itemize}
+
+\subsection{Rating Distribution}
+
+As broken down in Table~\ref{tab:rating_dist}, star ratings exhibit extreme left-skewness dominated by 5-star evaluations:
+
+\begin{table}[H]
+\centering
+\caption{Star Rating Distribution}
+\label{tab:rating_dist}
+\begin{tabular}{c r r}
+\toprule
+\textbf{Stars} & \textbf{Count} & \textbf{Percentage} \\
+\midrule
+5 & 13{,}829 & 76.06\% \\
+0 & 1{,}696  & 9.33\% \\
+4 & 1{,}655  & 9.10\% \\
+3 & 490     & 2.69\% \\
+1 & 280     & 1.54\% \\
+2 & 232     & 1.28\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The distribution reveals a bimodal tendency: besides the dominant 5-star peak, 0-star reviews form the second-largest group (9.33\%), surpassing 4-star reviews. This suggests a polarised reviewing culture where users either express strong satisfaction or complete dissatisfaction, with intermediate ratings being relatively rare.
+
+\subsection{Correlation Analysis}
+
+Selected Pearson correlation coefficients from the correlation matrix:
+
+\begin{itemize}[nosep]
+    \item \texttt{thumbs\_up} $\leftrightarrow$ \texttt{thumbs\_down}: moderately positive --- reviews that attract upvotes also attract downvotes, indicating \emph{controversial reviews} generate engagement in both directions.
+    \item \texttt{text\_length} $\leftrightarrow$ \texttt{word\_count}: very strong positive ($r > 0.95$) --- expected collinearity.
+    \item \texttt{stars} $\leftrightarrow$ \texttt{best\_score}: positive --- higher-rated reviews tend to receive higher platform quality scores.
+    \item \texttt{stars} $\leftrightarrow$ \texttt{thumbs\_up}: weak positive --- suggesting that community agreement partially aligns with the original reviewer's sentiment.
+    \item \texttt{user\_reputation} shows near-zero correlation with most engagement metrics, implying that high-reputation users do not systematically receive more engagement per review.
+\end{itemize}
+
+% ╔══════════════════════════════════════════════════════════════════════════╗
+% ║  5.  VISUALISATION AND ANALYTICAL INFERENCES                           ║
+% ╚══════════════════════════════════════════════════════════════════════════╝
+\section{Visualisation and Analytical Inferences}
+
+This section presents 14 distinct visualisation types, each accompanied by structured analytical commentary.
+
+% ── Plot 1: Histogram + KDE ─────────────────────────────────────────────
+\subsection{Histogram with KDE --- Star Rating Distribution}
+
+Figure~\ref{fig:hist_kde} illustrates the empirical distribution of star ratings alongside a kernel density estimate (KDE).
+
+\begin{figure}[H]
+\centering
+\safeimg[0.78]{images/01_histogram_stars_kde.png}{outputs/visualizations/01\_histogram\_stars\_kde.png}
+\caption{Histogram with Kernel Density Estimation of Star Ratings}
+\label{fig:hist_kde}
+\end{figure}
+
+\begin{itemize}[nosep]
+    \item \textbf{Attributes:} \texttt{stars} (discrete, 0--5)
+    \item \textbf{Purpose:} Visualise the overall frequency and density distribution of star ratings to characterise reviewer sentiment polarity.
+    \item \textbf{Observations:}
+    \begin{itemize}[nosep]
+        \item The 5-star bar dominates with 13{,}829 reviews (76.06\%), producing an extreme left skew.
+        \item The 0-star bar is the second tallest (1{,}696 reviews), exceeding the 4-star bar.
+        \item Ratings 1--3 collectively account for only 5.51\% of all reviews.
+        \item The KDE overlay confirms a unimodal peak at 5 with a heavy left tail.
+    \end{itemize}
+    \item \textbf{Inference:} The distribution reflects \emph{J-shaped} positivity bias typical of voluntary online review systems. Users who had a neutral experience rarely bother leaving reviews, creating a polarised distribution.
+    \item \textbf{Conclusion:} Any predictive model on this data will face severe class imbalance. The rarity of intermediate ratings (1--3 stars) means classifier performance on minority classes will be inherently limited.
+\end{itemize}
+
+% ── Plot 2: Boxplot ──────────────────────────────────────────────────────
+\subsection{Box Plot --- Review Length by Rating Category}
+
+Figure~\ref{fig:boxplot} displays the variation in character length across sentiment classes.
+
+\begin{figure}[H]
+\centering
+\safeimg[0.78]{images/02_boxplot_review_length_by_rating.png}{outputs/visualizations/02\_boxplot\_review\_length\_by\_rating.png}
+\caption{Box Plot of Review Text Length by Rating Category}
+\label{fig:boxplot}
+\end{figure}
+
+\begin{itemize}[nosep]
+    \item \textbf{Attributes:} \texttt{text\_length} (numerical) grouped by \texttt{rating\_cat} (Low / Medium / High)
+    \item \textbf{Purpose:} Examine whether review verbosity varies systematically with sentiment.
+    \item \textbf{Observations:}
+    \begin{itemize}[nosep]
+        \item Low-rating reviews (0--2 stars) exhibit a higher median text length and wider interquartile range compared to high-rating reviews.
+        \item 5-star reviews tend to be shorter, suggesting many are brief expressions of approval.
+        \item Outliers are present across all rating groups, with some reviews exceeding 2{,}000 characters.
+    \end{itemize}
+    \item \textbf{Inference:} Dissatisfied reviewers invest more effort in explaining their negative experience, resulting in longer reviews. Positive reviews are often brief affirmations (``Great recipe!'', ``Made it, loved it'').
+    \item \textbf{Conclusion:} Review length is a discriminative feature for sentiment: it carries information about rating tendency and can contribute to classification performance in the KNN model.
+\end{itemize}
+
+% ── Plot 3: Violin Plot ─────────────────────────────────────────────────
+\subsection{Violin Plot --- User Reputation by Rating Category}
+
+Figure~\ref{fig:violin} portrays the distribution of user reputation scores across rating categories.
+
+\begin{figure}[H]
+\centering
+\safeimg[0.78]{images/03_violinplot_reputation_by_rating.png}{outputs/visualizations/03\_violinplot\_reputation\_by\_rating.png}
+\caption{Violin Plot of User Reputation by Rating Category}
+\label{fig:violin}
+\end{figure}
+
+\begin{itemize}[nosep]
+    \item \textbf{Attributes:} \texttt{user\_reputation} grouped by \texttt{rating\_cat}
+    \item \textbf{Purpose:} Assess whether users with different reputation levels exhibit different rating tendencies.
+    \item \textbf{Observations:}
+    \begin{itemize}[nosep]
+        \item All rating categories show extremely concentrated distributions around reputation 1 (novice).
+        \item The violin shape is nearly identical across categories, with thin tails extending to high reputation values.
+        \item No clear visual separation in reputation distribution by rating group.
+    \end{itemize}
+    \item \textbf{Inference:} User reputation does not discriminate rating behaviour. The platform is dominated by novice users regardless of the sentiment they express.
+    \item \textbf{Conclusion:} While reputation was retained as a KNN feature, its discriminative power for rating prediction is minimal, consistent with the near-zero correlation observed in the correlation analysis.
+\end{itemize}
+
+% ── Plot 4: Bar Chart ────────────────────────────────────────────────────
+\subsection{Horizontal Bar Chart --- Top 15 Most-Reviewed Recipes}
+
+Figure~\ref{fig:barchart} highlights the 15 most reviewed culinary items across the platform.
+
+\begin{figure}[H]
+\centering
+\safeimg[0.78]{images/04_barchart_top_recipes.png}{outputs/visualizations/04\_barchart\_top\_recipes.png}
+\caption{Top 15 Most-Reviewed Recipes by Review Count}
+\label{fig:barchart}
+\end{figure}
+
+\begin{itemize}[nosep]
+    \item \textbf{Attributes:} \texttt{recipe\_name} (categorical), aggregated count
+    \item \textbf{Purpose:} Identify the most popular recipes by volume of user reviews.
+    \item \textbf{Observations:}
+    \begin{itemize}[nosep]
+        \item Review counts vary substantially across recipes, ranging from dozens to several hundred.
+        \item The top recipe has significantly more reviews than the median recipe, indicating uneven coverage.
+    \end{itemize}
+    \item \textbf{Inference:} Recipe popularity follows a Pareto-like distribution, with a small number of recipes attracting a disproportionately large share of community engagement.
+    \item \textbf{Conclusion:} This concentration must be considered when interpreting aggregate statistics, as a few high-volume recipes could dominate trends.
+\end{itemize}
+
+% ── Plot 5: Pareto Chart ────────────────────────────────────────────────
+\subsection{Pareto Chart --- Review Concentration Across Recipes}
+
+Figure~\ref{fig:pareto} shows the cumulative concentration of community reviews across recipes.
+
+\begin{figure}[H]
+\centering
+\safeimg[0.78]{images/05_pareto_chart_recipes.png}{outputs/visualizations/05\_pareto\_chart\_recipes.png}
+\caption{Pareto Chart of Review Concentration Across Recipes}
+\label{fig:pareto}
+\end{figure}
+
+\begin{itemize}[nosep]
+    \item \textbf{Attributes:} \texttt{recipe\_name} (sorted by count), cumulative percentage
+    \item \textbf{Purpose:} Quantify the degree of review concentration using the 80/20 principle.
+    \item \textbf{Observations:}
+    \begin{itemize}[nosep]
+        \item The cumulative percentage curve rises steeply for the first 20--30 recipes before plateauing.
+        \item Approximately 20--25\% of recipes account for roughly 50\% of all reviews.
+    \end{itemize}
+    \item \textbf{Inference:} The Pareto principle partially holds: a minority of recipes attracts a majority of engagement. However, the concentration is not as extreme as 80/20, since the dataset was curated to cover 100 specific recipes.
+    \item \textbf{Conclusion:} Any recipe-level analysis should control for volume differences, potentially using per-recipe normalised metrics rather than raw counts.
+\end{itemize}
+
+% ── Plot 6: Line Chart ──────────────────────────────────────────────────
+\subsection{Dual-Axis Line Chart --- Temporal Trends in Review Activity}
+
+Figure~\ref{fig:linechart} maps the monthly volume and mean ratings across the 20-month observation window.
+
+\begin{figure}[H]
+\centering
+\safeimg[0.78]{images/06_linechart_temporal_trends.png}{outputs/visualizations/06\_linechart\_temporal\_trends.png}
+\caption{Monthly Review Volume and Average Star Rating Over Time}
+\label{fig:linechart}
+\end{figure}
+
+\begin{itemize}[nosep]
+    \item \textbf{Attributes:} \texttt{month} (temporal), review count (aggregated), mean \texttt{stars}
+    \item \textbf{Purpose:} Track how review activity and average sentiment evolve over the 20-month observation period.
+    \item \textbf{Observations:}
+    \begin{itemize}[nosep]
+        \item Review volume fluctuates month-to-month without a strong secular trend.
+        \item Average star rating remains relatively stable between 4.0 and 4.5 across all months.
+        \item No significant seasonal pattern is apparent.
+    \end{itemize}
+    \item \textbf{Inference:} The platform's review ecosystem was in a steady state during the observation period. The absence of drift in mean rating suggests no major changes in recipe quality, platform policies, or user demographics.
+    \item \textbf{Conclusion:} Temporal features (\texttt{hour}, \texttt{month}, \texttt{is\_weekend}) are unlikely to be strong predictors of rating but may capture subtle behavioural patterns.
+\end{itemize}
+
+% ── Plot 7: Scatter Plot ────────────────────────────────────────────────
+\subsection{Scatter Plot with Regression --- Thumbs-Up vs.\ Best Score}
+
+Figure~\ref{fig:scatter} plots reviewer thumbs-up counts against platform best score with linear regression.
+
+\begin{figure}[H]
+\centering
+\safeimg[0.78]{images/07_scatterplot_thumbs_vs_bestscore.png}{outputs/visualizations/07\_scatterplot\_thumbs\_vs\_bestscore.png}
+\caption{Scatter Plot of Thumbs-Up vs.\ Best Score with Linear Regression}
+\label{fig:scatter}
+\end{figure}
+
+\begin{itemize}[nosep]
+    \item \textbf{Attributes:} \texttt{thumbs\_up} (x-axis), \texttt{best\_score} (y-axis)
+    \item \textbf{Purpose:} Investigate the relationship between community endorsement and platform quality scoring.
+    \item \textbf{Observations:}
+    \begin{itemize}[nosep]
+        \item The majority of data points are clustered near the origin (low thumbs-up, best\_score $\approx$ 100).
+        \item A positive trend line suggests that reviews with more thumbs-up tend to have higher best scores.
+        \item Extreme outliers exist with thumbs-up $> 50$ and best\_score $> 500$.
+    \end{itemize}
+    \item \textbf{Inference:} Community upvotes positively correlate with the platform's internal quality score, suggesting the scoring algorithm partially incorporates or aligns with community voting behaviour.
+    \item \textbf{Conclusion:} The \texttt{best\_score} attribute was correctly excluded from the KNN feature set, as it encodes a composite signal that could leak target-related information.
+\end{itemize}
+
+% ── Plot 8: Bubble Chart ────────────────────────────────────────────────
+\subsection{Bubble Chart --- Recipe-Level Engagement Overview}
+
+Figure~\ref{fig:bubble} presents a tri-variate bubble chart contrasting rating, upvotes, and review count.
+
+\begin{figure}[H]
+\centering
+\safeimg[0.78]{images/08_bubblechart_recipe_engagement.png}{outputs/visualizations/08\_bubblechart\_recipe\_engagement.png}
+\caption{Bubble Chart of Recipe Engagement Metrics}
+\label{fig:bubble}
+\end{figure}
+
+\begin{itemize}[nosep]
+    \item \textbf{Attributes:} Mean \texttt{stars} (x-axis), mean \texttt{thumbs\_up} (y-axis), review count (bubble size)
+    \item \textbf{Purpose:} Provide a tri-variate comparison of recipe performance across rating, engagement, and popularity.
+    \item \textbf{Observations:}
+    \begin{itemize}[nosep]
+        \item Most recipes cluster in the high-rating, low-engagement quadrant.
+        \item A few recipes with moderate ratings have disproportionately high thumbs-up, indicating they generate discussion.
+        \item Bubble size (review count) does not strongly correlate with either axis.
+    \end{itemize}
+    \item \textbf{Inference:} High ratings and high engagement are not synonymous. Some moderately-rated recipes generate more community interaction, possibly because controversial or unusual recipes provoke more discussion.
+    \item \textbf{Conclusion:} A recipe recommendation system should consider engagement metrics alongside ratings for a more complete view of recipe quality.
+\end{itemize}
+
+% ── Plot 9: Heatmap ─────────────────────────────────────────────────────
+\subsection{Correlation Heatmap}
+
+Figure~\ref{fig:heatmap} provides the full Pearson correlation matrix across all numerical features.
+
+\begin{figure}[H]
+\centering
+\safeimg[0.78]{images/09_heatmap_correlation_matrix.png}{outputs/visualizations/09\_heatmap\_correlation\_matrix.png}
+\caption{Pearson Correlation Heatmap of Numerical Attributes}
+\label{fig:heatmap}
+\end{figure}
+
+\begin{itemize}[nosep]
+    \item \textbf{Attributes:} All numerical features (pairwise Pearson correlations)
+    \item \textbf{Purpose:} Identify linear relationships and multicollinearity among numerical features.
+    \item \textbf{Observations:}
+    \begin{itemize}[nosep]
+        \item \texttt{text\_length} and \texttt{word\_count} show near-perfect correlation ($r > 0.95$).
+        \item \texttt{thumbs\_up} and \texttt{engagement\_total} are strongly correlated --- engagement is primarily driven by upvotes.
+        \item Most pairwise correlations are weak ($|r| < 0.3$), indicating the features carry largely independent information.
+    \end{itemize}
+    \item \textbf{Inference:} The low inter-feature correlation is favourable for KNN, which benefits from non-redundant features. The \texttt{text\_length}--\texttt{word\_count} collinearity is acceptable as both capture the same underlying construct.
+    \item \textbf{Conclusion:} No feature elimination was necessary due to multicollinearity, though retaining both text length and word count introduces mild redundancy.
+\end{itemize}
+
+% ── Plot 10: Hexbin ──────────────────────────────────────────────────────
+\subsection{Hexbin Density Plot --- Thumbs-Up vs.\ Thumbs-Down}
+
+Figure~\ref{fig:hexbin} shows the bivariate hexagonal density of thumbs-up versus thumbs-down counts.
+
+\begin{figure}[H]
+\centering
+\safeimg[0.78]{images/10_hexbin_thumbs_density.png}{outputs/visualizations/10\_hexbin\_thumbs\_density.png}
+\caption{Hexbin Density Plot of Thumbs-Up vs.\ Thumbs-Down}
+\label{fig:hexbin}
+\end{figure}
+
+\begin{itemize}[nosep]
+    \item \textbf{Attributes:} \texttt{thumbs\_up} (x-axis), \texttt{thumbs\_down} (y-axis)
+    \item \textbf{Purpose:} Visualise the joint density distribution of voting behaviour.
+    \item \textbf{Observations:}
+    \begin{itemize}[nosep]
+        \item The vast majority of reviews cluster at (0, 0) --- receiving no votes at all.
+        \item The density rapidly decreases along both axes.
+        \item Reviews with high thumbs-up sometimes also receive high thumbs-down, indicating controversy.
+    \end{itemize}
+    \item \textbf{Inference:} The hexbin plot reveals that voting is a rare event. The community engagement model is ``winner-take-nothing'' for most reviews, with only a small fraction generating any community response.
+    \item \textbf{Conclusion:} Zero-inflation in engagement variables confirms that most reviews exist in a ``silent majority'' where no community feedback is given.
+\end{itemize}
+
+% ── Plot 11: Word Cloud ─────────────────────────────────────────────────
+\subsection{Word Cloud --- Most Common Words in 5-Star Reviews}
+
+Figure~\ref{fig:wordcloud} captures the dominant lexical themes of 5-star reviews.
+
+\begin{figure}[H]
+\centering
+\safeimg[0.78]{images/11_wordcloud_review_text.png}{outputs/visualizations/11\_wordcloud\_review\_text.png}
+\caption{Word Cloud of Frequent Terms in 5-Star Reviews}
+\label{fig:wordcloud}
+\end{figure}
+
+\begin{itemize}[nosep]
+    \item \textbf{Attributes:} \texttt{text} (filtered to 5-star reviews), word frequencies
+    \item \textbf{Purpose:} Identify dominant themes and vocabulary in highly positive reviews through visual text analysis.
+    \item \textbf{Observations:}
+    \begin{itemize}[nosep]
+        \item Prominent terms include ``recipe'', ``made'', ``great'', ``love'', ``easy'', ``delicious'', ``family''.
+        \item Action verbs (``made'', ``added'') and positive adjectives (``great'', ``delicious'', ``easy'') dominate.
+        \item Food-specific terms appear alongside general sentiment terms.
+    \end{itemize}
+    \item \textbf{Inference:} Highly-rated reviews emphasise ease of preparation, taste quality, and family appeal. The prevalence of ``made'' suggests these are experiential reviews from users who actually prepared the recipe.
+    \item \textbf{Conclusion:} A text-based sentiment classifier could leverage these terms as strong positive indicators.
+\end{itemize}
+
+% ── Plot 12: Stacked Bar ────────────────────────────────────────────────
+\subsection{Stacked 100\% Bar Chart --- Rating Distribution by Engagement Level}
+
+Figure~\ref{fig:stacked} illustrates rating proportions across four discrete engagement tiers.
+
+\begin{figure}[H]
+\centering
+\safeimg[0.78]{images/12_stacked_bar_rating_by_engagement.png}{outputs/visualizations/12\_stacked\_bar\_rating\_by\_engagement.png}
+\caption{Normalised Stacked Bar Chart of Rating by Engagement Category}
+\label{fig:stacked}
+\end{figure}
+
+\begin{itemize}[nosep]
+    \item \textbf{Attributes:} \texttt{engagement\_cat} (x-axis), \texttt{rating\_cat} proportions (stacked)
+    \item \textbf{Purpose:} Examine how the rating distribution shifts across different engagement levels.
+    \item \textbf{Observations:}
+    \begin{itemize}[nosep]
+        \item Zero-engagement reviews are predominantly high-rated (5-star).
+        \item As engagement level increases, the proportion of high-rated reviews decreases and medium/low ratings become more prevalent.
+        \item Highly-engaged reviews have a more balanced rating distribution.
+    \end{itemize}
+    \item \textbf{Inference:} Community engagement acts as a moderating force --- reviews that provoke discussion tend to be more controversial or nuanced, rather than simple 5-star affirmations.
+    \item \textbf{Conclusion:} This pattern validates the association rules discovered by FP-Growth, which link \texttt{Engage\_Zero} with \texttt{Feedback\_Neutral} and \texttt{No\_Reply}.
+\end{itemize}
+
+% ── Plot 13: Donut Chart ────────────────────────────────────────────────
+\subsection{Donut Chart --- User Reputation Segments}
+
+Figure~\ref{fig:donut} breaks down the user population into four reputation tiers.
+
+\begin{figure}[H]
+\centering
+\safeimg[0.78]{images/13_donut_chart_reputation_segments.png}{outputs/visualizations/13\_donut\_chart\_reputation\_segments.png}
+\caption{Donut Chart of User Reputation Segments}
+\label{fig:donut}
+\end{figure}
+
+\begin{itemize}[nosep]
+    \item \textbf{Attributes:} \texttt{reputation\_cat} (New, Novice, Active, Veteran)
+    \item \textbf{Purpose:} Visualise the user base composition by reputation tier.
+    \item \textbf{Observations:}
+    \begin{itemize}[nosep]
+        \item Novice users (reputation = 1) constitute 93.15\% of all reviewers.
+        \item Active and Veteran segments combined account for less than 7\%.
+        \item The donut chart starkly illustrates the dominance of casual, low-reputation users.
+    \end{itemize}
+    \item \textbf{Inference:} The platform is overwhelmingly composed of first-time or one-time reviewers. The ``long tail'' of experienced users is extremely thin, which limits the utility of reputation as a predictive feature.
+    \item \textbf{Conclusion:} This extreme imbalance in reputation tiers explains why \texttt{Rep\_Novice} appears in almost every association rule and closed frequent itemset.
+\end{itemize}
+
+% ── Plot 14: Network Graph ──────────────────────────────────────────────
+\subsection{Network Graph --- Association Rule Relationships}
+
+Figure~\ref{fig:network} maps the topological relationships of the top association rules as a graph.
+
+\begin{figure}[H]
+\centering
+\safeimg[0.78]{images/14_network_graph_association_rules.png}{outputs/visualizations/14\_network\_graph\_association\_rules.png}
+\caption{Network Graph of Top Association Rules}
+\label{fig:network}
+\end{figure}
+
+\begin{itemize}[nosep]
+    \item \textbf{Attributes:} Antecedents and consequents of top association rules, weighted by lift
+    \item \textbf{Purpose:} Visualise the interconnectedness and structure of discovered association rules.
+    \item \textbf{Observations:}
+    \begin{itemize}[nosep]
+        \item Central nodes (\texttt{Feedback\_Positive}, \texttt{No\_Reply}, \texttt{Rep\_Novice}) have high degree, connecting to many rules.
+        \item Peripheral nodes (\texttt{Engage\_High}, \texttt{Feedback\_Critical}) connect to fewer but more specific rules.
+        \item The graph reveals two main clusters: one around positive engagement patterns and one around low-engagement/critical feedback patterns.
+    \end{itemize}
+    \item \textbf{Inference:} The network structure confirms that the association rule space has two dominant behavioural archetypes: a ``silent satisfied majority'' and a ``vocal critical minority''.
+    \item \textbf{Conclusion:} This visualisation provides a holistic view of rule interconnections that tabular rule listings cannot convey.
+\end{itemize}
+
+% ╔══════════════════════════════════════════════════════════════════════════╗
+% ║  6.  PREDICTIVE ANALYTICS --- OVERVIEW                                 ║
+% ╚══════════════════════════════════════════════════════════════════════════╝
+\section{Predictive Analytics}
+
+The predictive analytics component of this study applies three algorithmic techniques:
+
+\begin{enumerate}[nosep]
+    \item \textbf{FP-Growth Association Rule Mining} --- discovering co-occurrence patterns in discretised review attributes.
+    \item \textbf{K-Nearest Neighbours (KNN) Classification} --- predicting the rating category from numerical review and user features.
+    \item \textbf{AGNES Hierarchical Clustering} --- segmenting users into behaviourally distinct groups based on engagement and content features.
+\end{enumerate}
+
+Additionally, \textbf{ACLOSE Closed Frequent Itemset Mining} is applied to extract a compact, lossless representation of the frequent pattern space.
+
+% ╔══════════════════════════════════════════════════════════════════════════╗
+% ║  7.  FP-GROWTH ASSOCIATION RULE MINING                                 ║
+% ╚══════════════════════════════════════════════════════════════════════════╝
+\section{FP-Growth Association Rule Mining}
+
+\subsection{Methodology}
+
+The FP-Growth algorithm was applied to a binary transaction matrix constructed from 6 discretised categorical attributes: \texttt{rating\_cat}, \texttt{reputation\_cat}, \texttt{length\_cat}, \texttt{engagement\_cat}, \texttt{feedback\_cat}, and \texttt{reply\_cat}. These yielded 17 unique items across 18{,}182 transactions.
+
+\textbf{Parameters:}
+\begin{itemize}[nosep]
+    \item Minimum support: 0.03 (546 transactions)
+    \item Minimum confidence: 0.50
+    \item Implementation: \texttt{mlxtend.frequent\_patterns.fpgrowth}
+\end{itemize}
+
+\subsection{Support Threshold Sensitivity Analysis}
+
+Table~\ref{tab:support_exp} presents the sensitivity of frequent itemset generation to varying minimum support thresholds:
+
+\begin{table}[H]
+\centering
+\caption{Effect of Minimum Support on Frequent Itemset Generation}
+\label{tab:support_exp}
+\begin{tabular}{c r r}
+\toprule
+\textbf{Min Support} & \textbf{Frequent Itemsets} & \textbf{Max Size} \\
+\midrule
+0.02 & 394 & 6 \\
+0.03 & 313 & 6 \\
+0.05 & 216 & 6 \\
+0.10 & 145 & 6 \\
+0.15 & 119 & 6 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The maximum itemset size remains constant at 6 across all support thresholds, indicating that the item co-occurrence structure supports deep pattern chains regardless of the support floor.
+
+\subsection{Rule Generation Results}
+
+At the selected thresholds (support $\geq 0.03$, confidence $\geq 0.50$), the algorithm generated:
+\begin{itemize}[nosep]
+    \item \textbf{313 frequent itemsets} (up to size 6)
+    \item \textbf{1{,}467 association rules}
+    \item \textbf{683 rules with Lift $\geq 1.05$} (positively correlated)
+\end{itemize}
+
+\subsection{Top Association Rules by Lift}
+
+\begin{rulebox}[Top 5 Association Rules by Lift]
+\begin{enumerate}
+    \item \textbf{\{No\_Reply, Engage\_High, Rating\_High\_5\} $\Rightarrow$ \{Feedback\_Positive\}}\\
+    Support = 0.0329 \quad Confidence = \textbf{89.66\%} \quad \textbf{Lift = 4.724}
+
+    \item \textbf{\{Engage\_High, Rating\_High\_5\} $\Rightarrow$ \{Feedback\_Positive\}}\\
+    Support = 0.0351 \quad Confidence = \textbf{89.11\%} \quad \textbf{Lift = 4.695}
+
+    \item \textbf{\{Engage\_Medium, Rating\_High\_5\} $\Rightarrow$ \{No\_Reply, Feedback\_Positive\}}\\
+    Support = 0.0331 \quad Confidence = \textbf{85.01\%} \quad \textbf{Lift = 4.636}
+
+    \item \textbf{\{Feedback\_Critical, No\_Reply, Rep\_Novice\} $\Rightarrow$ \{Engage\_Low\}}\\
+    Support = 0.0305 \quad Confidence = \textbf{62.43\%} \quad \textbf{Lift = 4.309}
+
+    \item \textbf{\{Feedback\_Critical, No\_Reply\} $\Rightarrow$ \{Engage\_Low\}}\\
+    Support = 0.0332 \quad Confidence = \textbf{61.22\%} \quad \textbf{Lift = 4.226}
+\end{enumerate}
+\end{rulebox}
+
+\subsection{Top Rules by Confidence (100\% Confidence)}
+
+\begin{rulebox}[Deterministic Rules (Confidence = 100\%)]
+\begin{itemize}
+    \item \textbf{\{Engage\_Zero, Rep\_Novice, Len\_Medium\} $\Rightarrow$ \{No\_Reply, Feedback\_Neutral\}}\\
+    Support = 0.3368 \quad Confidence = \textbf{100\%} \quad Lift = 1.361
+
+    \item \textbf{\{Engage\_Zero\} $\Rightarrow$ \{No\_Reply\}}\\
+    Support = 0.7347 \quad Confidence = \textbf{100\%} \quad Lift = 1.013
+
+    \item \textbf{\{Engage\_Zero\} $\Rightarrow$ \{Feedback\_Neutral\}}\\
+    Support = 0.7347 \quad Confidence = \textbf{100\%} \quad Lift = 1.359
+\end{itemize}
+\end{rulebox}
+
+\subsection{Top Rules by Support}
+
+\begin{rulebox}[Most Prevalent Rules (by Support)]
+\begin{itemize}
+    \item \textbf{\{No\_Reply\} $\Rightarrow$ \{Rep\_Novice\}} --- Support = 0.9210, Confidence = 93.28\%
+    \item \textbf{\{Rep\_Novice\} $\Rightarrow$ \{No\_Reply\}} --- Support = 0.9210, Confidence = 98.87\%
+    \item \textbf{\{Rating\_High\_5\} $\Rightarrow$ \{No\_Reply\}} --- Support = 0.7565, Confidence = 99.46\%
+\end{itemize}
+\end{rulebox}
+
+\subsection{Interpretation of Key Rules}
+
+\begin{findingbox}[Key Finding 1: Positive Engagement Paradox]
+Rules 1--3 reveal that reviews with \emph{high engagement} and \emph{5-star ratings} are almost certainly marked as ``Feedback\_Positive'' (89--90\% confidence), with lift values $> 4.6\times$. This means that among the small fraction of 5-star reviews that do receive community interaction, the interaction is overwhelmingly positive. The \textit{paradox} is that most 5-star reviews receive zero engagement --- but those that do are strongly endorsed.
+\end{findingbox}
+
+\begin{findingbox}[Key Finding 2: Critical Feedback Isolation]
+Rules 4--5 show that \emph{critical feedback} (0--2 stars) from novice users with no replies is strongly associated with \emph{low engagement} (Lift $> 4.2\times$). Critical reviews from new users are essentially ignored by the community, receiving neither upvotes nor replies. This suggests a potential moderation gap where negative feedback is systematically underweighted.
+\end{findingbox}
+
+\begin{findingbox}[Key Finding 3: Zero-Engagement Determinism]
+The 100\%-confidence rules establish that zero engagement \emph{deterministically} implies no replies and neutral feedback categorisation. This is an inherent structural relationship: reviews with no community interaction are classified as ``neutral'' by the platform's feedback mechanism.
+\end{findingbox}
+
+\subsection{Association Rule Visualisations}
+
+Figure~\ref{fig:arm_vis} illustrates the discovered rule landscape, with Figure~\ref{fig:arm_scatter} depicting the support-confidence distribution and Figure~\ref{fig:arm_lift} ranking top rules by lift.
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}[b]{0.48\textwidth}
+\safeimg[1.0]{images/arm_support_vs_confidence.png}{outputs/association\_rules/arm\_support\_vs\_confidence.png}
+\caption{Support vs.\ Confidence scatter}
+\label{fig:arm_scatter}
+\end{subfigure}
+\hfill
+\begin{subfigure}[b]{0.48\textwidth}
+\safeimg[1.0]{images/arm_top_rules_lift_barchart.png}{outputs/association\_rules/arm\_top\_rules\_lift\_barchart.png}
+\caption{Top rules by Lift}
+\label{fig:arm_lift}
+\end{subfigure}
+\caption{Association Rule Mining Visualisations}
+\label{fig:arm_vis}
+\end{figure}
+
+% ╔══════════════════════════════════════════════════════════════════════════╗
+% ║  8.  KNN CLASSIFICATION                                               ║
+% ╚══════════════════════════════════════════════════════════════════════════╝
+\section{K-Nearest Neighbours Classification}
+
+\subsection{Experimental Setup}
+
+Table~\ref{tab:knn_config} details the experimental setup and evaluation protocol for KNN classification:
+
+\begin{table}[H]
+\centering
+\caption{KNN Classification Configuration}
+\label{tab:knn_config}
+\begin{tabular}{l l}
+\toprule
+\textbf{Parameter} & \textbf{Value} \\
+\midrule
+Target variable & \texttt{rating\_3class}: Low (0--2), Medium (3--4), High (5) \\
+Features (9) & user\_reputation, reply\_count, thumbs\_up, thumbs\_down, \\
+             & text\_length, word\_count, hour, month, is\_weekend \\
+Excluded & \texttt{best\_score} (target leakage) \\
+Scaling & StandardScaler (zero-mean, unit-variance) \\
+Train/Test split & 80/20 stratified (14{,}545 / 3{,}637) \\
+$K$ values tested & 3, 5, 7, 9, 11, 15, 21 \\
+Distance metrics & Euclidean, Manhattan \\
+Weighting schemes & Uniform, Distance-weighted \\
+Total configurations & 28 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Hyperparameter Tuning Results}
+
+Table~\ref{tab:knn_tuning} reports the accuracy, macro F1, and weighted F1 metrics across representative hyperparameter configurations:
+
+\begin{table}[H]
+\centering
+\caption{Selected KNN Hyperparameter Tuning Results}
+\label{tab:knn_tuning}
+\small
+\begin{tabular}{c l l r r r}
+\toprule
+\textbf{K} & \textbf{Metric} & \textbf{Weight} & \textbf{Accuracy} & \textbf{Macro F1} & \textbf{Weighted F1} \\
+\midrule
+3  & Euclidean & Uniform  & 0.6824 & 0.3681 & 0.6541 \\
+3  & Euclidean & Distance & 0.6632 & 0.3730 & 0.6475 \\
+5  & Euclidean & Distance & 0.6855 & 0.3779 & 0.6599 \\
+\rowcolor{green!10}
+\textbf{7}  & \textbf{Euclidean} & \textbf{Distance} & \textbf{0.6965} & \textbf{0.3813} & \textbf{0.6655} \\
+9  & Euclidean & Distance & 0.6970 & 0.3703 & 0.6620 \\
+11 & Euclidean & Distance & 0.7047 & 0.3776 & 0.6676 \\
+15 & Euclidean & Uniform  & 0.7668 & 0.3580 & 0.6857 \\
+21 & Manhattan & Uniform  & 0.7688 & 0.3529 & 0.6847 \\
+7  & Manhattan & Distance & 0.6945 & 0.3805 & 0.6647 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Model selection criterion:} The best model was selected by \textbf{Macro F1 score} (which equally weights performance across all classes, penalising models that ignore minorities) rather than raw accuracy, which is inflated by correct predictions on the dominant class.
+
+\subsection{Best Model}
+
+\begin{bestbox}[Best KNN Configuration]
+\begin{center}
+{\Large\textbf{K = 7 \quad|\quad Euclidean Distance \quad|\quad Distance-Weighted}}
+\end{center}
+\vspace{4pt}
+\begin{tabular}{l r}
+\textbf{Overall Accuracy:} & \textbf{69.65\%} \\
+\textbf{Macro Precision:} & 39.79\% \\
+\textbf{Macro Recall:} & 37.90\% \\
+\textbf{Macro F1 Score:} & \textbf{38.13\%} \\
+\textbf{Weighted F1 Score:} & 66.55\% \\
+\end{tabular}
+\end{bestbox}
+
+\subsection{Per-Class Performance}
+
+Table~\ref{tab:knn_report} details the class-specific precision, recall, and F1 scores for the optimal configuration (=7$, Euclidean, Distance-weighted):
+
+\begin{table}[H]
+\centering
+\caption{Classification Report for Best KNN Model ($K=7$, Euclidean, Distance)}
+\label{tab:knn_report}
+\begin{tabular}{l r r r r}
+\toprule
+\textbf{Class} & \textbf{Precision} & \textbf{Recall} & \textbf{F1-Score} & \textbf{Support} \\
+\midrule
+Class 0: Low (0--2 Stars)    & 0.2468 & 0.1765 & 0.2058 & 442 \\
+Class 1: Medium (3--4 Stars) & 0.1667 & 0.0862 & 0.1137 & 429 \\
+\rowcolor{green!10}
+Class 2: High (5 Stars)      & 0.7803 & 0.8742 & 0.8246 & 2{,}766 \\
+\midrule
+\textbf{Macro Average}       & 0.3979 & 0.3790 & 0.3813 & 3{,}637 \\
+\textbf{Weighted Average}    & 0.6431 & 0.6965 & 0.6655 & 3{,}637 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Confusion Matrix}
+
+Table~\ref{tab:knn_cm} provides the complete test-set confusion matrix for the optimal model:
+
+\begin{table}[H]
+\centering
+\caption{Confusion Matrix --- Best KNN Model}
+\label{tab:knn_cm}
+\begin{tabular}{l|r r r}
+\toprule
+\textbf{Actual $\backslash$ Predicted} & \textbf{Low} & \textbf{Medium} & \textbf{High} \\
+\midrule
+\textbf{Class 0: Low}    & \textbf{78}  & 29  & 335 \\
+\textbf{Class 1: Medium} & 46  & \textbf{37}  & 346 \\
+\textbf{Class 2: High}   & 192 & 156 & \textbf{2{,}418} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Analysis and Interpretation}
+
+\begin{itemize}
+    \item \textbf{Class 2 (High / 5-star)} achieves strong performance (F1 = 0.8246) due to the overwhelming majority of training instances. The model correctly identifies 87.42\% of 5-star reviews.
+    \item \textbf{Class 0 (Low / 0--2 stars)} achieves low recall (17.65\%), meaning 82.35\% of negative reviews are misclassified --- predominantly as ``High'' (335 of 442 Low-class reviews are predicted as High). This reflects the class imbalance: the model defaults to the majority class.
+    \item \textbf{Class 1 (Medium / 3--4 stars)} has the worst performance (F1 = 0.1137) with only 37 out of 429 medium-rated reviews correctly identified. This is expected, as medium-rated reviews occupy a narrow feature space between Low and High, making them inherently difficult to separate with KNN.
+    \item \textbf{Accuracy vs.\ Macro F1 tension:} The highest-accuracy model ($K = 21$, Manhattan, Uniform, accuracy = 76.88\%) achieves this by essentially predicting ``High'' for almost all instances, yielding a \emph{lower} Macro F1 (0.3529). The selected model (K = 7, accuracy = 69.65\%) trades overall accuracy for better minority-class recognition.
+\end{itemize}
+
+\subsection{KNN Visualisations}
+
+Figure~\ref{fig:knn_vis} illustrates classifier behavior, depicting accuracy trends across $ (Figure~\ref{fig:knn_perf}) and the test confusion matrix heatmap (Figure~\ref{fig:knn_cm}).
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}[b]{0.48\textwidth}
+\safeimg[1.0]{images/knn_performance_vs_k.png}{outputs/knn/knn\_performance\_vs\_k.png}
+\caption{Accuracy vs.\ $K$ for all configurations}
+\label{fig:knn_perf}
+\end{subfigure}
+\hfill
+\begin{subfigure}[b]{0.48\textwidth}
+\safeimg[1.0]{images/knn_confusion_matrix.png}{outputs/knn/knn\_confusion\_matrix.png}
+\caption{Confusion matrix heatmap}
+\label{fig:knn_cm}
+\end{subfigure}
+\caption{KNN Classification Evaluation Visualisations}
+\label{fig:knn_vis}
+\end{figure}
+
+% ╔══════════════════════════════════════════════════════════════════════════╗
+% ║  9.  AGNES HIERARCHICAL CLUSTERING                                     ║
+% ╚══════════════════════════════════════════════════════════════════════════╝
+\section{AGNES Hierarchical Clustering}
+
+\subsection{Methodology}
+
+Table~\ref{tab:agnes_config} outlines the experimental configuration for AGNES clustering.
+
+Agglomerative Nesting (AGNES) was applied to a randomly sampled subset of 2{,}000 records from the full dataset (due to the $O(n^2)$ memory and $O(n^3)$ time complexity of hierarchical clustering). Six numerical features were selected and standardised using StandardScaler prior to clustering.
+
+\begin{table}[H]
+\centering
+\caption{AGNES Clustering Configuration}
+\label{tab:agnes_config}
+\begin{tabular}{l l}
+\toprule
+\textbf{Parameter} & \textbf{Value} \\
+\midrule
+Sample size & 2{,}000 (from 18{,}182) \\
+Features (6) & user\_reputation, thumbs\_up, thumbs\_down, reply\_count, text\_length, word\_count \\
+Scaling & StandardScaler \\
+Number of clusters ($k$) & 4 \\
+Linkage method & Ward (minimum variance) \\
+Distance metric & Euclidean \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Linkage Comparison --- Cophenetic Correlation}
+
+Table~\ref{tab:cophenetic} reports the cophenetic correlation coefficients across four standard linkage algorithms.
+
+Four linkage methods were evaluated using the cophenetic correlation coefficient, which measures how faithfully the dendrogram preserves the pairwise distances.
+
+\begin{table}[H]
+\centering
+\caption{Cophenetic Correlation Scores by Linkage Method}
+\label{tab:cophenetic}
+\begin{tabular}{l r l}
+\toprule
+\textbf{Linkage Method} & \textbf{Cophenetic Correlation} & \textbf{Note} \\
+\midrule
+Single   & 0.8399 & Sensitive to noise, chaining effect \\
+Complete & 0.8762 & Tight, spherical clusters \\
+\rowcolor{yellow!15}
+Average  & \textbf{0.9572} & Highest dendrogram fidelity \\
+Ward     & 0.5243 & Selected for compact, balanced clusters \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Note:} Although Average linkage achieves the highest cophenetic correlation (0.9572), Ward linkage was selected because it produces more balanced, interpretable clusters. Ward's lower cophenetic score is a known characteristic: its minimum-variance merging criterion distorts dendrogram branch lengths but yields superior cluster separability. The silhouette score (computed below) confirms this choice.
+
+\subsection{Cluster Evaluation Metrics}
+
+\begin{bestbox}[AGNES Clustering Evaluation]
+\begin{center}
+{\Large\textbf{Silhouette Score = 0.5820}}
+\end{center}
+\vspace{4pt}
+\begin{tabular}{l r l}
+\textbf{Calinski-Harabasz Index:} & 652.53 & (higher is better) \\
+\textbf{Davies-Bouldin Index:} & 0.9884 & (lower is better) \\
+\end{tabular}
+\vspace{6pt}
+
+A silhouette score of 0.5820 indicates \textbf{moderate-to-good} cluster structure ($> 0.5$ threshold). The clusters are meaningfully separated in the feature space, though some overlap exists between adjacent segments.
+\end{bestbox}
+
+\subsection{Cluster Profiles}
+
+Table~\ref{tab:cluster_profiles} details the structural properties and centroid metrics of each identified cluster:
+
+\begin{table}[H]
+\centering
+\caption{AGNES Cluster Profiles ($k = 4$, Ward Linkage)}
+\label{tab:cluster_profiles}
+\small
+\begin{tabular}{c r r r r r r r l}
+\toprule
+\textbf{ID} & \textbf{Size} & \textbf{\%} & \makecell{\textbf{Avg}\\\textbf{Rep}} & \makecell{\textbf{Avg}\\\textbf{Thu$\uparrow$}} & \makecell{\textbf{Avg}\\\textbf{Thu$\downarrow$}} & \makecell{\textbf{Avg}\\\textbf{Reply}} & \makecell{\textbf{Avg}\\\textbf{TextLen}} & \textbf{Pattern} \\
+\midrule
+0 & 61   & 3.0\%  & 3.10  & 18.54 & 9.69  & 0.56 & 287 & High-Engagement Influencers \\
+1 & 1{,}636 & 81.8\% & 2.03  & 0.46  & 0.21  & 0.00 & 146 & Casual Reviewers \\
+2 & 302  & 15.1\% & 1.42  & 1.00  & 0.38  & 0.00 & 507 & Narrative Essayists \\
+3 & 1    & 0.1\%  & 510.0 & 3.00  & 0.00  & 0.00 & 125 & Power User Outlier \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Cluster Interpretation}
+
+\begin{findingbox}[Cluster 0 --- High-Engagement Influencers (3.0\%)]
+This small but impactful segment writes moderately long reviews ($\sim$287 chars) that attract substantial community interaction (avg.\ 18.5 thumbs-up, 9.7 thumbs-down). Their reviews are \emph{controversial} --- generating both agreement and disagreement. They are the community opinion leaders whose reviews are most likely to be seen and debated.
+\end{findingbox}
+
+\begin{findingbox}[Cluster 1 --- Casual Reviewers (81.8\%)]
+The dominant cluster consists of users who write relatively short reviews (146 chars), receive almost no engagement, and have no replies. Their reputation is low ($\sim$2.0). These are ``fire-and-forget'' reviewers who leave a quick rating and move on. They form the silent majority of the platform.
+\end{findingbox}
+
+\begin{findingbox}[Cluster 2 --- Narrative Essayists (15.1\%)]
+These users write significantly longer reviews (avg.\ 507 chars --- more than 3$\times$ the casual reviewer average) but receive minimal engagement despite their effort. They have the lowest average reputation (1.42), suggesting they are new users who are highly expressive but have not yet built community influence.
+\end{findingbox}
+
+\begin{findingbox}[Cluster 3 --- Power User Outlier (0.1\%)]
+A single user with reputation 510 (more than 240$\times$ the platform average). Despite their extreme reputation, they write short reviews (125 chars) and receive modest engagement (3 thumbs-up). This singleton cluster demonstrates the AGNES algorithm's sensitivity to outliers under Ward linkage.
+\end{findingbox}
+
+\subsection{AGNES Visualisations}
+
+Figure~\ref{fig:agnes_vis} illustrates the hierarchical structure via the Ward dendrogram (Figure~\ref{fig:dendro}) and 2D PCA cluster projection (Figure~\ref{fig:pca_scatter}).
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}[b]{0.48\textwidth}
+\safeimg[1.0]{images/agnes_dendrogram_ward.png}{outputs/clustering/agnes\_dendrogram\_ward.png}
+\caption{Ward linkage dendrogram}
+\label{fig:dendro}
+\end{subfigure}
+\hfill
+\begin{subfigure}[b]{0.48\textwidth}
+\safeimg[1.0]{images/agnes_pca_cluster_scatter.png}{outputs/clustering/agnes\_pca\_cluster\_scatter.png}
+\caption{PCA projection of clusters}
+\label{fig:pca_scatter}
+\end{subfigure}
+\caption{AGNES Clustering Visualisations}
+\label{fig:agnes_vis}
+\end{figure}
+
+% ╔══════════════════════════════════════════════════════════════════════════╗
+% ║  10. ACLOSE CLOSED FREQUENT ITEMSET MINING                            ║
+% ╚══════════════════════════════════════════════════════════════════════════╝
+\section{ACLOSE --- Closed Frequent Itemset Mining}
+
+\subsection{Background}
+
+Closed frequent itemsets (CFIs) are a \emph{lossless compression} of the full set of frequent itemsets. An itemset $X$ is closed if no proper superset of $X$ has the same support. CFIs preserve all information needed to derive the support of any frequent itemset and to generate association rules, while substantially reducing the number of patterns that need to be stored and interpreted.
+
+The ACLOSE algorithm computes closed frequent itemsets by applying Galois closure to candidate generators in a levelwise fashion, pruning non-closed itemsets at each level.
+
+\subsection{Correctness Verification}
+
+The ACLOSE implementation was verified against brute-force enumeration on a test sample:
+
+\begin{bestbox}[Verification Result]
+\begin{center}
+\textbf{ACLOSE output matches brute-force: 100\% correctness}\\
+(105 CFIs verified on test sample)
+\end{center}
+\end{bestbox}
+
+\subsection{Redundancy Reduction}
+
+Table~\ref{tab:fi_vs_cfi} quantifies the exact pattern reduction achieved by ACLOSE across support thresholds:
+
+\begin{table}[H]
+\centering
+\caption{Frequent Itemsets vs.\ Closed Frequent Itemsets}
+\label{tab:fi_vs_cfi}
+\begin{tabular}{c r r r}
+\toprule
+\textbf{Min Support} & \textbf{Freq.\ Itemsets} & \textbf{Closed FIs} & \textbf{Reduction} \\
+\midrule
+5\%  & 216 & 136 & 37.04\% \\
+10\% & 145 & 81  & 44.14\% \\
+15\% & 119 & 63  & 47.06\% \\
+20\% & 81  & 45  & 44.44\% \\
+25\% & 68  & 36  & 47.06\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The CFI representation achieves a consistent 37--47\% reduction in pattern count across all support thresholds, with higher support thresholds yielding greater compression.
+
+\subsection{Selected Closed Frequent Itemsets}
+
+\begin{cfibox}[Top Closed Frequent Itemsets (min\_support = 10\%)]
+
+\textbf{Size-1 CFIs:}
+\begin{itemize}[nosep]
+    \item \textbf{\{No\_Reply\}} --- Support: 0.9874 (17{,}952 / 18{,}182)
+    \item \textbf{\{Rep\_Novice\}} --- Support: 0.9315 (16{,}936 / 18{,}182)
+    \item \textbf{\{Rating\_High\_5\}} --- Support: 0.7606 (13{,}829 / 18{,}182)
+    \item \textbf{\{Feedback\_Neutral\}} --- Support: 0.7361 (13{,}383 / 18{,}182)
+    \item \textbf{\{Len\_Medium\}} --- Support: 0.4528 (8{,}232 / 18{,}182)
+    \item \textbf{\{Len\_Long\}} --- Support: 0.3296 (5{,}992 / 18{,}182)
+\end{itemize}
+
+\vspace{6pt}
+\textbf{Size-2 CFIs:}
+\begin{itemize}[nosep]
+    \item \textbf{\{No\_Reply, Rep\_Novice\}} --- Support: 0.9210 (16{,}745 / 18{,}182)
+    \item \textbf{\{No\_Reply, Rating\_High\_5\}} --- Support: 0.7565 (13{,}754 / 18{,}182)
+    \item \textbf{\{Rating\_High\_5, Rep\_Novice\}} --- Support: 0.7081 (12{,}874 / 18{,}182)
+\end{itemize}
+
+\vspace{6pt}
+\textbf{Size-3 CFIs (highest support):}
+\begin{itemize}[nosep]
+    \item \textbf{\{Engage\_Zero, Feedback\_Neutral, No\_Reply\}} --- Support: 0.7347 (13{,}359 / 18{,}182)
+    \item \textbf{\{No\_Reply, Rating\_High\_5, Rep\_Novice\}} --- Support: 0.7050 (12{,}818 / 18{,}182)
+\end{itemize}
+
+\vspace{6pt}
+\textbf{Maximal CFI (Size-6):}
+\begin{itemize}[nosep]
+    \item \textbf{\{Engage\_Zero, Feedback\_Neutral, Len\_Medium, No\_Reply, Rating\_High\_5, Rep\_Novice\}} --- Support: 0.2612
+\end{itemize}
+\end{cfibox}
+
+\subsection{CFI Interpretation}
+
+\begin{itemize}
+    \item The most prevalent closed itemset \{No\_Reply\} (98.74\%) confirms that the vast majority of reviews receive no replies, establishing the platform's passive interaction model.
+    \item The high-support size-3 CFI \{Engage\_Zero, Feedback\_Neutral, No\_Reply\} (73.47\%) represents the \emph{platform archetype}: the typical review is unengaged, unreplied, and sentiment-neutral.
+    \item The maximal CFI (size 6) characterising a novice user, with a medium-length 5-star review, zero engagement, neutral feedback, and no reply, describes the \emph{canonical review} --- a template for over a quarter (26.12\%) of all reviews.
+    \item The redundancy reduction of 37--47\% demonstrates that nearly half of all frequent itemsets are non-closed --- they can be fully reconstructed from their closed counterparts without information loss.
+\end{itemize}
+
+\subsection{ACLOSE Visualisations}
+
+Figure~\ref{fig:aclose_vis} visualises pattern reduction, contrasting itemset counts (Figure~\ref{fig:fi_cfi}) and plotting the redundancy reduction curve (Figure~\ref{fig:redundancy}).
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}[b]{0.48\textwidth}
+\safeimg[1.0]{images/aclose_fi_vs_cfi_comparison.png}{outputs/closed\_itemsets/aclose\_fi\_vs\_cfi\_comparison.png}
+\caption{FI vs.\ CFI count comparison}
+\label{fig:fi_cfi}
+\end{subfigure}
+\hfill
+\begin{subfigure}[b]{0.48\textwidth}
+\safeimg[1.0]{images/aclose_redundancy_reduction_curve.png}{outputs/closed\_itemsets/aclose\_redundancy\_reduction\_curve.png}
+\caption{Redundancy reduction curve}
+\label{fig:redundancy}
+\end{subfigure}
+\caption{ACLOSE Closed Frequent Itemset Mining Visualisations}
+\label{fig:aclose_vis}
+\end{figure}
+
+% ╔══════════════════════════════════════════════════════════════════════════╗
+% ║  11.  PYSPARK IMPLEMENTATION                                           ║
+% ╚══════════════════════════════════════════════════════════════════════════╝
+\section{PySpark Implementation}
+
+\subsection{Environment}
+
+Table~\ref{tab:spark_env} details the execution environment specifications for the PySpark implementation:
+
+\begin{table}[H]
+\centering
+\caption{PySpark Environment Configuration}
+\label{tab:spark_env}
+\begin{tabular}{l l}
+\toprule
+\textbf{Component} & \textbf{Version / Details} \\
+\midrule
+Python     & 3.11.2 \\
+PySpark    & 3.5.3 \\
+Java       & OpenJDK 17 \\
+Spark mode & Local single-node (\texttt{local[*]}) \\
+OS         & Windows \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Implemented PySpark Pipelines}
+
+The following analytics tasks were re-implemented using PySpark DataFrames and MLlib:
+
+\begin{enumerate}[nosep]
+    \item \textbf{Data Loading:} CSV ingestion using \texttt{spark.read.csv()} with schema inference.
+    \item \textbf{Data Cleaning:} Null handling, duplicate removal, and type casting using Spark SQL transformations.
+    \item \textbf{Descriptive Aggregation:} Rating distribution, recipe performance summaries, and monthly trend analysis using \texttt{groupBy()} and aggregation functions.
+    \item \textbf{FP-Growth:} Association rule mining using Spark MLlib's \texttt{FPGrowth} implementation with the same minimum support (0.03) and confidence (0.50) thresholds.
+    \item \textbf{Bisecting K-Means Clustering:} Spark MLlib's bisecting K-Means as a distributed alternative to hierarchical clustering (AGNES does not have a direct Spark MLlib implementation).
+\end{enumerate}
+
+\textbf{Note:} KNN classification and ACLOSE closed frequent itemset mining were not re-implemented in PySpark, as Spark MLlib does not provide native KNN or closed itemset implementations. The KNN and ACLOSE results were obtained using scikit-learn and a custom Python implementation, respectively.
+
+\subsection{PySpark Output Summary}
+
+PySpark successfully generated:
+\begin{itemize}[nosep]
+    \item Rating distribution (\texttt{spark\_rating\_distribution.csv})
+    \item Recipe performance summary (\texttt{spark\_recipe\_performance\_summary.csv})
+    \item Monthly trends (\texttt{spark\_monthly\_trends.csv})
+    \item Frequent itemsets (\texttt{spark\_frequent\_itemsets.csv})
+    \item Association rules (\texttt{spark\_association\_rules.csv})
+    \item Bisecting K-Means cluster assignments (\texttt{spark\_bisecting\_kmeans\_clusters.csv})
+\end{itemize}
+
+% ╔══════════════════════════════════════════════════════════════════════════╗
+% ║  12. PERFORMANCE BENCHMARKING                                          ║
+% ╚══════════════════════════════════════════════════════════════════════════╝
+\section{Performance Analysis: Pandas vs.\ PySpark}
+
+\subsection{Benchmarking Methodology}
+
+Table~\ref{tab:bench_config} lists the benchmark parameters.
+
+A controlled benchmark compared Pandas (single-threaded, in-memory) against PySpark (Spark local mode, JVM-based) across four task categories at four dataset scales. Each measurement was taken on the same machine to eliminate hardware variability.
+
+\begin{table}[H]
+\centering
+\caption{Benchmarking Configuration}
+\label{tab:bench_config}
+\begin{tabular}{l l}
+\toprule
+\textbf{Parameter} & \textbf{Value} \\
+\midrule
+Dataset scales & 10\%, 25\%, 50\%, 100\% (1{,}818 to 18{,}182 records) \\
+Tasks & Data Loading, Data Cleaning, Aggregation, FP-Growth \\
+Environment & Windows, single-node, local execution \\
+PySpark mode & \texttt{local[*]} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Benchmark Results}
+
+Table~\ref{tab:benchmark} provides exact execution times and speedup ratios across tasks and scales:
+
+\begin{table}[H]
+\centering
+\caption{Pandas vs.\ PySpark Execution Times (seconds)}
+\label{tab:benchmark}
+\small
+\begin{tabular}{r r r r r r r r r r}
+\toprule
+\textbf{Scale} & \textbf{Records} & \makecell{\textbf{Pd}\\\textbf{Load}} & \makecell{\textbf{Sp}\\\textbf{Load}} & \makecell{\textbf{S.Up}\\\textbf{Load}} & \makecell{\textbf{Pd}\\\textbf{Agg}} & \makecell{\textbf{Sp}\\\textbf{Agg}} & \makecell{\textbf{S.Up}\\\textbf{Agg}} & \makecell{\textbf{Pd}\\\textbf{FPG}} & \makecell{\textbf{Sp}\\\textbf{FPG}} \\
+\midrule
+10\%  & 1{,}818  & 0.014 & 2.547 & 0.01$\times$ & 0.026 & 0.384 & 0.07$\times$ & 0.009 & 2.052 \\
+25\%  & 4{,}545  & 0.013 & 0.261 & 0.05$\times$ & 0.006 & 0.220 & 0.03$\times$ & 0.018 & 0.453 \\
+50\%  & 9{,}091  & 0.033 & 0.243 & 0.14$\times$ & 0.007 & 0.200 & 0.04$\times$ & 0.036 & 0.395 \\
+100\% & 18{,}182 & 0.061 & 0.303 & 0.20$\times$ & 0.006 & 0.211 & 0.03$\times$ & 0.086 & 0.513 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Speedup formula:}
+\[
+\text{Speedup} = \frac{T_{\text{Pandas}}}{T_{\text{PySpark}}}
+\]
+
+A speedup $< 1.0$ means Pandas is faster.
+
+\subsection{Analysis}
+
+\begin{findingbox}[Key Finding: PySpark Overhead on Small Data]
+\textbf{Pandas outperforms PySpark across all tasks at all dataset scales.} The ``speedup'' ratios range from 0.01$\times$ to 0.20$\times$, meaning PySpark is 5--100$\times$ \emph{slower} than Pandas for this 6~MB dataset.
+\end{findingbox}
+
+\begin{itemize}
+    \item \textbf{Fixed overhead floor:} PySpark's minimum execution time is approximately 200--300~ms for any task, regardless of data size. This floor is attributable to JVM startup, Spark Catalyst query optimisation, Py4J serialisation between Python and Java, and task scheduling overhead.
+    \item \textbf{Scaling trend:} As data size increases from 10\% to 100\%, the Pandas$/$PySpark speedup ratio improves (from 0.01$\times$ to 0.20$\times$ for loading), indicating that PySpark's overhead becomes proportionally less significant at larger scales.
+    \item \textbf{Projected crossover:} Extrapolating the trend, PySpark would achieve parity with Pandas at approximately $10^5$--$10^6$ records for simple aggregation tasks, and earlier for more computation-intensive operations.
+    \item \textbf{Data loading anomaly:} At 10\% scale, PySpark loading takes 2.55~s (vs.\ 0.014~s for Pandas), which includes cold JVM/SparkSession initialisation. Subsequent scales (25--100\%) show PySpark loading at 0.24--0.30~s, indicating that the first execution pays a one-time warm-up cost.
+\end{itemize}
+
+\textbf{Important caveat:} This benchmark was conducted on a single-node local Spark installation. PySpark's true advantage emerges in distributed multi-node clusters processing datasets of gigabyte-to-terabyte scale, where data parallelism, fault tolerance, and distributed memory management justify the framework overhead.
+
+\subsection{Benchmark Visualisations}
+
+Figure~\ref{fig:bench_vis} contrasts execution profiles across tasks and dataset scales (Figure~\ref{fig:bench_time}) alongside the observed speedup ratios (Figure~\ref{fig:bench_speed}).
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}[b]{0.48\textwidth}
+\safeimg[1.0]{images/benchmark_execution_times.png}{outputs/benchmarks/benchmark\_execution\_times.png}
+\caption{Execution times by task and scale}
+\label{fig:bench_time}
+\end{subfigure}
+\hfill
+\begin{subfigure}[b]{0.48\textwidth}
+\safeimg[1.0]{images/benchmark_speedup_ratios.png}{outputs/benchmarks/benchmark\_speedup\_ratios.png}
+\caption{Speedup ratios across scales}
+\label{fig:bench_speed}
+\end{subfigure}
+\caption{Performance Benchmark Visualisations}
+\label{fig:bench_vis}
+\end{figure}
+
+% ╔══════════════════════════════════════════════════════════════════════════╗
+% ║  13. OVERALL RESULTS AND KEY FINDINGS                                  ║
+% ╚══════════════════════════════════════════════════════════════════════════╝
+\section{Overall Results and Key Findings}
+
+\subsection{Summary of Results}
+
+Table~\ref{tab:summary} synthesises the empirical findings across all analytical phases:
+
+\begin{table}[H]
+\centering
+\caption{Summary of All Analytical Results}
+\label{tab:summary}
+\small
+\begin{tabularx}{\textwidth}{l X}
+\toprule
+\textbf{Analysis} & \textbf{Key Result} \\
+\midrule
+Dataset & 18{,}182 reviews, 100 recipes, 13{,}812 users, 20-month span \\
+Descriptive & Mean rating 4.29, 76\% five-star, extreme positive skew \\
+FP-Growth ARM & 1{,}467 rules; best lift = 4.724 (High engagement + 5-star $\Rightarrow$ Positive feedback) \\
+KNN & Best: $K=7$, Euclidean, Distance; Accuracy = 69.65\%, Macro F1 = 0.3813 \\
+AGNES & 4 clusters; Silhouette = 0.5820; 81.8\% casual reviewers \\
+ACLOSE & 81 CFIs at 10\% support; 44.14\% redundancy reduction; 100\% verified \\
+PySpark & All pipelines functional; Pandas 5--100$\times$ faster on this 6~MB dataset \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Key Analytical Findings}
+
+\begin{enumerate}
+    \item \textbf{The platform is dominated by positive, passive reviewers.} Over 76\% of reviews are 5-star, 93\% of users are novices, and 73\% of reviews receive zero engagement. The ``typical'' review is a brief 5-star affirmation from a first-time user that nobody reads or responds to.
+
+    \item \textbf{Negative reviews are systematically marginalised.} Association rules show that critical feedback from novice users is associated with low engagement (Lift = 4.31), suggesting that the platform's engagement mechanisms do not amplify dissenting voices.
+
+    \item \textbf{Review length is the strongest discriminator of sentiment.} Negative reviews are significantly longer than positive ones, and the AGNES clustering separates users primarily by text length and engagement, not by reputation.
+
+    \item \textbf{Class imbalance fundamentally limits classification.} KNN achieves 87\% recall on the dominant class but only 18\% and 9\% on minority classes. Without oversampling or cost-sensitive learning, any distance-based classifier will default to the majority class for ambiguous instances.
+
+    \item \textbf{The user community has a clear three-tier structure:} casual reviewers (82\%), narrative essayists (15\%), and high-engagement influencers (3\%). This segmentation emerges naturally from AGNES without prior knowledge of user roles.
+
+    \item \textbf{Closed frequent itemsets compress the pattern space by 37--47\%,} confirming that a significant fraction of frequent itemsets are redundant and can be losslessly derived from their closures.
+
+    \item \textbf{PySpark's value is in scalability, not speed.} At the scale of this dataset, Spark's distributed computing overhead dominates any potential parallelism benefit. PySpark's advantage emerges only at scales 10--100$\times$ larger.
+\end{enumerate}
+
+% ╔══════════════════════════════════════════════════════════════════════════╗
+% ║  14.  LIMITATIONS                                                      ║
+% ╚══════════════════════════════════════════════════════════════════════════╝
+\section{Limitations}
+
+\begin{enumerate}
+    \item \textbf{Class imbalance:} The 76\% dominance of 5-star reviews severely limits the KNN classifier's ability to learn minority-class decision boundaries. Techniques such as SMOTE, cost-sensitive learning, or ensemble methods were not applied.
+
+    \item \textbf{Feature space for KNN:} Only 9 numerical features were used. Incorporating text-based features (TF-IDF, sentiment scores, word embeddings) could substantially improve classification performance.
+
+    \item \textbf{AGNES scalability:} Hierarchical clustering was performed on a 2{,}000-record subsample due to $O(n^2)$ memory constraints. The resulting clusters may not fully represent patterns in the complete 18{,}182-record dataset.
+
+    \item \textbf{Single-node PySpark:} The benchmark was conducted on a local Spark installation, which does not demonstrate PySpark's distributed processing advantages. A multi-node cluster benchmark would provide a more representative comparison.
+
+    \item \textbf{Temporal scope:} The dataset spans only 20 months (Feb 2021 -- Oct 2022). Longer-term trends, seasonality, and platform evolution cannot be assessed.
+
+    \item \textbf{Text analysis depth:} Review text was used only for length-based features and word cloud visualisation. Advanced NLP techniques (topic modelling, named entity recognition, aspect-based sentiment analysis) were not applied.
+
+    \item \textbf{Association rule discretisation:} The choice of binning thresholds for creating the ARM transaction matrix is subjective. Different binning strategies could yield different association rules.
+\end{enumerate}
+
+% ╔══════════════════════════════════════════════════════════════════════════╗
+% ║  15. CONCLUSION                                                        ║
+% ╚══════════════════════════════════════════════════════════════════════════╝
+\section{Conclusion}
+
+This study conducted a comprehensive descriptive and predictive analytics investigation on the UCI Recipe Reviews and User Feedback Dataset, integrating statistical analysis, 14 distinct visualisation types, FP-Growth association rule mining, KNN classification, AGNES hierarchical clustering, ACLOSE closed frequent itemset mining, and PySpark-based Big Data processing.
+
+The descriptive analysis revealed a platform characterised by extreme positive rating bias (76\% five-star reviews), highly skewed user reputation distribution (93\% novices), and sparse community engagement (73\% zero-engagement reviews). Association rule mining uncovered a dual-archetype structure: a ``silent satisfied majority'' where 5-star, unengaged reviews dominate, and a ``vocal critical minority'' where negative feedback is systematically associated with low community response.
+
+The KNN classifier achieved 69.65\% accuracy with the best Macro F1 of 0.3813, demonstrating the inherent difficulty of classifying ratings in a severely imbalanced dataset. AGNES clustering naturally segmented users into four behaviourally distinct groups, with a silhouette score of 0.5820 confirming moderate-to-good cluster separation. The ACLOSE algorithm achieved 37--47\% compression of the frequent itemset space with verified 100\% correctness, demonstrating the value of closed representations for pattern summarisation.
+
+The PySpark implementation successfully replicated all applicable analytics pipelines, while the performance benchmark confirmed that Pandas maintains a substantial speed advantage for datasets at this scale. PySpark's distributed computing framework is designed for datasets orders of magnitude larger, where its parallelism, fault tolerance, and memory management capabilities justify the per-task overhead.
+
+This project demonstrates the complementary value of multiple analytics techniques applied to a single dataset: descriptive statistics characterise the data, association rules reveal co-occurrence patterns, classification tests predictive power, clustering discovers user segments, and closed itemsets compress the pattern space --- collectively providing a 360-degree view of the recipe review ecosystem.
+
+% ╔══════════════════════════════════════════════════════════════════════════╗
+% ║  REFERENCES                                                            ║
+% ╚══════════════════════════════════════════════════════════════════════════╝
+\section*{References}
+\addcontentsline{toc}{section}{References}
+
+\begin{enumerate}[label={[\arabic*]}, nosep]
+    \item UCI Machine Learning Repository. ``Recipe Reviews and User Feedback Dataset.'' \url{https://archive.ics.uci.edu/dataset/911/recipe+reviews+and+user+feedback+dataset}
+    \item Han, J., Pei, J., and Yin, Y. (2000). ``Mining Frequent Patterns without Candidate Generation.'' \textit{ACM SIGMOD Record}, 29(2), 1--12.
+    \item Pasquier, N., Bastide, Y., Taouil, R., and Lakhal, L. (1999). ``Discovering Frequent Closed Itemsets for Association Rules.'' \textit{Proc. ICDT}, 398--416.
+    \item Cover, T. M. and Hart, P. E. (1967). ``Nearest Neighbor Pattern Classification.'' \textit{IEEE Transactions on Information Theory}, 13(1), 21--27.
+    \item Kaufman, L. and Rousseeuw, P. J. (1990). \textit{Finding Groups in Data: An Introduction to Cluster Analysis}. John Wiley \& Sons.
+    \item Zaharia, M., et al. (2016). ``Apache Spark: A Unified Engine for Big Data Processing.'' \textit{Communications of the ACM}, 59(11), 56--65.
+    \item Pedregosa, F., et al. (2011). ``Scikit-learn: Machine Learning in Python.'' \textit{JMLR}, 12, 2825--2830.
+    \item Raschka, S. (2018). ``MLxtend: Providing Machine Learning and Data Science Utilities and Extensions to Python's Scientific Computing Stack.'' \textit{JOSS}, 3(24), 638.
+\end{enumerate}
+
+\end{document}

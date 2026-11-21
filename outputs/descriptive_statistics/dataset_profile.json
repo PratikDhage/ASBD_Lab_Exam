@@ -1,0 +1,22 @@
+{
+    "total_records": 18182,
+    "total_features": 34,
+    "unique_recipes": 100,
+    "unique_users": 13812,
+    "unique_comments": 18182,
+    "date_range_start": "2021-02-11 09:22:16",
+    "date_range_end": "2022-10-14 14:00:35",
+    "stars_breakdown": {
+        "5": 13829,
+        "0": 1696,
+        "4": 1655,
+        "3": 490,
+        "1": 280,
+        "2": 232
+    },
+    "mean_rating": 4.2888,
+    "median_rating": 5.0,
+    "mean_user_reputation": 2.1596,
+    "mean_text_length": 199.8633,
+    "total_engagement_events": 30059
+}

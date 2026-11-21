@@ -1,0 +1,6 @@
+min_support,frequent_itemsets_count,max_itemset_size,execution_time_sec
+0.02,394,6,0.0956
+0.03,313,6,0.1006
+0.05,216,6,0.0958
+0.1,145,6,0.0894
+0.15,119,6,0.0976

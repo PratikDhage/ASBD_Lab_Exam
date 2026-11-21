@@ -1,0 +1,257 @@
+antecedent_str,consequent_str,confidence,lift,support
+"Engage_High, No_Reply",Len_Long,0.574,1.6925,0.032
+Engage_High,Len_Long,0.5714,1.685,0.0365
+"Engage_High, Rep_Novice",Len_Long,0.5618,1.6566,0.0302
+"Rating_0_Unrated, Engage_Zero, No_Reply",Len_Medium,0.5346,1.1893,0.0353
+"Rating_0_Unrated, Engage_Zero",Len_Medium,0.5346,1.1893,0.0353
+"Rating_0_Unrated, Engage_Zero, Rep_Novice",Len_Medium,0.5318,1.1832,0.034
+"Rating_0_Unrated, Engage_Zero, Rep_Novice, No_Reply",Len_Medium,0.5318,1.1832,0.034
+"Len_Short, Rating_High_5, Rep_Novice, No_Reply",Engage_Zero,0.8589,1.169,0.1316
+"Len_Short, Rating_High_5, Rep_Novice",Engage_Zero,0.858,1.1677,0.1316
+"Len_Short, Rating_High_5, No_Reply",Engage_Zero,0.8509,1.1581,0.1374
+"Len_Short, Rating_High_5",Engage_Zero,0.85,1.1569,0.1374
+"Rating_0_Unrated, No_Reply",Len_Medium,0.5138,1.1431,0.0459
+"Len_Short, Rep_Novice, No_Reply",Engage_Zero,0.8378,1.1403,0.1665
+Rating_0_Unrated,Len_Medium,0.5112,1.1372,0.0477
+"Rating_0_Unrated, Rep_Novice, No_Reply",Len_Medium,0.5106,1.1359,0.0437
+"Len_Short, No_Reply",Engage_Zero,0.831,1.131,0.1742
+"Len_Short, Rep_Novice",Engage_Zero,0.8309,1.1309,0.1665
+"Rating_0_Unrated, Rep_Novice",Len_Medium,0.508,1.1302,0.0452
+Len_Short,Engage_Zero,0.8241,1.1216,0.1742
+"Len_Medium, Rating_High_5, Rep_Novice, No_Reply",Engage_Zero,0.8214,1.1179,0.2602
+"Len_Medium, Rating_High_5, Rep_Novice",Engage_Zero,0.8179,1.1132,0.2602
+"Len_Medium, Rating_High_5, No_Reply",Engage_Zero,0.8059,1.0968,0.2729
+"Len_Medium, Rep_Novice, No_Reply",Engage_Zero,0.8043,1.0946,0.3349
+"Len_Medium, Rating_High_5",Engage_Zero,0.8018,1.0913,0.2729
+"Len_Medium, Rep_Novice",Engage_Zero,0.7961,1.0835,0.3349
+"Len_Medium, No_Reply",Engage_Zero,0.7897,1.0748,0.351
+"Rating_Medium_3_4, Len_Medium, Rep_Novice, No_Reply",Engage_Zero,0.7863,1.0702,0.0354
+Len_Medium,Engage_Zero,0.7807,1.0626,0.351
+"Rating_0_Unrated, Len_Medium, Rep_Novice, No_Reply",Engage_Zero,0.7783,1.0593,0.034
+"Rating_High_5, Rep_Novice, No_Reply",Engage_Zero,0.7756,1.0557,0.5468
+"Rating_Medium_3_4, Len_Medium, No_Reply",Engage_Zero,0.7733,1.0526,0.0373
+"Rating_High_5, Rep_Novice",Engage_Zero,0.7723,1.0511,0.5468
+"Rating_Medium_3_4, Len_Medium, Rep_Novice",Engage_Zero,0.7694,1.0472,0.0354
+"Rating_0_Unrated, Len_Medium, No_Reply",Engage_Zero,0.7677,1.0448,0.0353
+"Rating_0_Unrated, Engage_Zero",Rep_Novice,0.9691,1.0404,0.0639
+"Rating_0_Unrated, Engage_Zero, No_Reply",Rep_Novice,0.9691,1.0404,0.0639
+"Len_Short, Engage_Zero, Rep_Novice",Rating_High_5,0.7902,1.039,0.1316
+"Len_Short, Engage_Zero, Rep_Novice, No_Reply",Rating_High_5,0.7902,1.039,0.1316
+"Len_Short, Engage_Zero",Rating_High_5,0.7891,1.0375,0.1374
+"Len_Short, Engage_Zero, No_Reply",Rating_High_5,0.7891,1.0375,0.1374
+"Rating_0_Unrated, Len_Medium, Engage_Zero, No_Reply",Rep_Novice,0.9641,1.035,0.034
+"Rating_0_Unrated, Len_Medium, Engage_Zero",Rep_Novice,0.9641,1.035,0.034
+"Rating_High_5, No_Reply",Engage_Zero,0.7599,1.0342,0.5748
+"Rep_Novice, No_Reply",Engage_Zero,0.759,1.0331,0.699
+"Len_Long, Engage_Zero",Rating_High_5,0.7848,1.0319,0.1645
+"Len_Long, Engage_Zero, No_Reply",Rating_High_5,0.7848,1.0319,0.1645
+"Len_Long, Engage_Zero, Rep_Novice",Rating_High_5,0.7846,1.0315,0.155
+"Len_Long, Engage_Zero, Rep_Novice, No_Reply",Rating_High_5,0.7846,1.0315,0.155
+"Rating_Medium_3_4, Len_Medium",Engage_Zero,0.7561,1.0291,0.0373
+"Engage_Zero, No_Reply",Rating_High_5,0.7823,1.0286,0.5748
+Engage_Zero,Rating_High_5,0.7823,1.0286,0.5748
+Rating_High_5,Engage_Zero,0.7557,1.0286,0.5748
+"Engage_Zero, Rep_Novice, No_Reply",Rating_High_5,0.7822,1.0284,0.5468
+"Engage_Zero, Rep_Novice",Rating_High_5,0.7822,1.0284,0.5468
+"Len_Short, Engage_Zero, Rating_High_5, No_Reply",Rep_Novice,0.9572,1.0276,0.1316
+"Len_Short, Engage_Zero, Rating_High_5",Rep_Novice,0.9572,1.0276,0.1316
+"Rating_0_Unrated, No_Reply",Rep_Novice,0.9569,1.0273,0.0855
+"Rep_Veteran, No_Reply",Rating_High_5,0.7805,1.0262,0.0458
+"Len_Short, Engage_Zero, No_Reply",Rep_Novice,0.9558,1.0261,0.1665
+"Len_Short, Engage_Zero",Rep_Novice,0.9558,1.0261,0.1665
+"Len_Medium, Engage_Zero, No_Reply",Rep_Novice,0.9544,1.0246,0.3349
+"Len_Medium, Engage_Zero",Rep_Novice,0.9544,1.0246,0.3349
+"Rating_0_Unrated, Len_Medium, Rep_Novice",Engage_Zero,0.7527,1.0245,0.034
+"Len_Medium, Engage_Zero, Rating_High_5",Rep_Novice,0.9536,1.0238,0.2602
+"Len_Medium, Engage_Zero, Rating_High_5, No_Reply",Rep_Novice,0.9536,1.0238,0.2602
+Rating_0_Unrated,Rep_Novice,0.9528,1.0229,0.0889
+"Len_Medium, Engage_Zero",Rating_High_5,0.7775,1.0222,0.2729
+"Len_Medium, Engage_Zero, No_Reply",Rating_High_5,0.7775,1.0222,0.2729
+Rep_Novice,Engage_Zero,0.7505,1.0214,0.699
+Engage_Zero,Rep_Novice,0.9514,1.0214,0.699
+"Len_Medium, Engage_Zero, Rep_Novice",Rating_High_5,0.7768,1.0214,0.2602
+"Engage_Zero, No_Reply",Rep_Novice,0.9514,1.0214,0.699
+"Len_Medium, Engage_Zero, Rep_Novice, No_Reply",Rating_High_5,0.7768,1.0214,0.2602
+"Engage_Zero, Rating_High_5",Rep_Novice,0.9513,1.0213,0.5468
+"Engage_Zero, Rating_High_5, No_Reply",Rep_Novice,0.9513,1.0213,0.5468
+"Rating_0_Unrated, Len_Medium, No_Reply",Rep_Novice,0.9509,1.0209,0.0437
+"Rating_Medium_3_4, Len_Medium, Engage_Zero, No_Reply",Rep_Novice,0.9485,1.0182,0.0354
+"Rating_Medium_3_4, Len_Medium, Engage_Zero",Rep_Novice,0.9485,1.0182,0.0354
+"Len_Short, Rating_High_5",Rep_Novice,0.9483,1.0181,0.1533
+"Len_Short, Rating_High_5, No_Reply",Rep_Novice,0.9482,1.018,0.1532
+"Len_Short, No_Reply",Rep_Novice,0.948,1.0178,0.1987
+Len_Short,Rep_Novice,0.948,1.0177,0.2004
+"Rating_0_Unrated, Rep_Novice, No_Reply",Engage_Zero,0.7473,1.0171,0.0639
+"Rating_0_Unrated, Len_Medium",Rep_Novice,0.9469,1.0166,0.0452
+Rep_Veteran,Rating_High_5,0.7726,1.0158,0.0465
+"Len_Short, Rep_Novice, No_Reply",Rating_High_5,0.7708,1.0135,0.1532
+"Len_Short, No_Reply",Rating_High_5,0.7707,1.0132,0.1615
+Engage_Zero,No_Reply,1.0,1.0128,0.7347
+"Len_Short, Engage_Zero, Rep_Novice",No_Reply,1.0,1.0128,0.1665
+"Rating_Medium_3_4, Engage_Zero",No_Reply,1.0,1.0128,0.0813
+"Engage_Zero, Rating_High_5",No_Reply,1.0,1.0128,0.5748
+"Len_Medium, Engage_Zero, Rating_High_5, Rep_Novice",No_Reply,1.0,1.0128,0.2602
+"Rating_0_Unrated, Len_Medium, Engage_Zero",No_Reply,1.0,1.0128,0.0353
+"Len_Medium, Engage_Zero, Rating_High_5",No_Reply,1.0,1.0128,0.2729
+"Len_Medium, Engage_Zero, Rep_Novice",No_Reply,1.0,1.0128,0.3349
+"Rating_Medium_3_4, Engage_Zero, Rep_Novice",No_Reply,1.0,1.0128,0.0762
+"Len_Long, Engage_Zero, Rep_Novice",No_Reply,1.0,1.0128,0.1976
+"Rating_0_Unrated, Engage_Zero, Rep_Novice",No_Reply,1.0,1.0128,0.0639
+"Rating_0_Unrated, Len_Medium, Engage_Zero, Rep_Novice",No_Reply,1.0,1.0128,0.034
+"Len_Short, Engage_Zero, Rating_High_5",No_Reply,1.0,1.0128,0.1374
+"Len_Short, Engage_Zero",No_Reply,1.0,1.0128,0.1742
+"Engage_Zero, Rep_Novice",No_Reply,1.0,1.0128,0.699
+"Len_Long, Engage_Zero, Rating_High_5",No_Reply,1.0,1.0128,0.1645
+"Rating_0_Unrated, Engage_Zero",No_Reply,1.0,1.0128,0.0659
+"Len_Short, Engage_Zero, Rating_High_5, Rep_Novice",No_Reply,1.0,1.0128,0.1316
+"Rep_Veteran, Engage_Zero",No_Reply,1.0,1.0128,0.0342
+"Len_Long, Engage_Zero",No_Reply,1.0,1.0128,0.2096
+"Rating_Medium_3_4, Len_Medium, Engage_Zero",No_Reply,1.0,1.0128,0.0373
+"Len_Medium, Engage_Zero",No_Reply,1.0,1.0128,0.351
+"Len_Long, Engage_Zero, Rating_High_5, Rep_Novice",No_Reply,1.0,1.0128,0.155
+"Engage_Zero, Rating_High_5, Rep_Novice",No_Reply,1.0,1.0128,0.5468
+"Rating_Medium_3_4, Len_Medium, Engage_Zero, Rep_Novice",No_Reply,1.0,1.0128,0.0354
+No_Reply,Engage_Zero,0.7442,1.0128,0.7347
+"Engage_Low, Len_Long, No_Reply",Rating_High_5,0.77,1.0124,0.0497
+"Len_Long, Engage_Zero",Rep_Novice,0.9428,1.0122,0.1976
+"Len_Long, Engage_Zero, No_Reply",Rep_Novice,0.9428,1.0122,0.1976
+"Len_Long, Engage_Zero, Rating_High_5, No_Reply",Rep_Novice,0.9425,1.0118,0.155
+"Len_Long, Engage_Zero, Rating_High_5",Rep_Novice,0.9425,1.0118,0.155
+"Len_Short, Rating_High_5",No_Reply,0.999,1.0118,0.1615
+"Len_Short, Rating_High_5, Rep_Novice",No_Reply,0.9989,1.0117,0.1532
+"Len_Long, No_Reply",Rating_High_5,0.769,1.0111,0.2564
+"Engage_Low, Len_Long, Rating_High_5",No_Reply,0.9978,1.0106,0.0497
+"Len_Long, Rep_Novice, No_Reply",Rating_High_5,0.7685,1.0104,0.235
+"Engage_Low, Len_Long, Rating_High_5, Rep_Novice",No_Reply,0.9975,1.0103,0.0446
+"Len_Medium, Rating_High_5, Rep_Novice",No_Reply,0.9959,1.0086,0.3168
+"Engage_Low, Len_Long",Rating_High_5,0.7671,1.0086,0.0498
+"Rating_High_5, Rep_Novice",No_Reply,0.9957,1.0084,0.705
+"Len_Medium, Rating_High_5",No_Reply,0.995,1.0077,0.3386
+Rating_High_5,No_Reply,0.9946,1.0073,0.7565
+No_Reply,Rating_High_5,0.7662,1.0073,0.7565
+"Engage_Low, Rating_High_5, Rep_Novice",No_Reply,0.9943,1.0071,0.0962
+"Engage_Low, Len_Long, Rep_Novice, No_Reply",Rating_High_5,0.7658,1.0069,0.0446
+"Engage_Low, Len_Long",No_Reply,0.9941,1.0068,0.0646
+"Engage_Low, Rating_High_5",No_Reply,0.9939,1.0066,0.1069
+"Rep_Novice, No_Reply",Rating_High_5,0.7655,1.0064,0.705
+"Rating_0_Unrated, Len_Medium",Engage_Zero,0.7393,1.0063,0.0353
+"Len_Short, Rep_Novice",Rating_High_5,0.7653,1.0062,0.1533
+"Engage_Low, Len_Long, Rep_Novice",No_Reply,0.9934,1.0062,0.0582
+"Len_Medium, No_Reply",Rep_Novice,0.9371,1.0061,0.4165
+"Rating_Medium_3_4, Engage_Zero",Rep_Novice,0.9371,1.006,0.0762
+"Len_Long, Rating_High_5, Rep_Novice",No_Reply,0.9933,1.006,0.235
+"Rating_Medium_3_4, Engage_Zero, No_Reply",Rep_Novice,0.9371,1.006,0.0762
+Len_Short,Rating_High_5,0.765,1.0058,0.1617
+Len_Medium,Rep_Novice,0.936,1.0049,0.4207
+"Len_Medium, Rating_High_5, No_Reply",Rep_Novice,0.9357,1.0045,0.3168
+"Len_Short, Rep_Novice",No_Reply,0.9918,1.0045,0.1987
+Len_Short,No_Reply,0.9917,1.0044,0.2096
+"Rating_0_Unrated, No_Reply",Engage_Zero,0.7378,1.0042,0.0659
+"Len_Long, Rating_High_5",No_Reply,0.9913,1.004,0.2564
+"Len_Medium, Rating_High_5",Rep_Novice,0.9349,1.0036,0.3181
+"Engage_Low, Len_Long, Rep_Novice",Rating_High_5,0.7627,1.0027,0.0447
+Len_Long,Rating_High_5,0.7626,1.0026,0.2586
+"Len_Medium, Rep_Novice",No_Reply,0.9898,1.0025,0.4165
+"Len_Long, Rep_Novice",Rating_High_5,0.7624,1.0023,0.2366
+"Engage_Low, Len_Medium, Rating_High_5, Rep_Novice",No_Reply,0.9893,1.002,0.0357
+"Len_Medium, No_Reply",Rating_High_5,0.7619,1.0017,0.3386
+Rep_Novice,No_Reply,0.9887,1.0014,0.921
+"Rating_Medium_3_4, Len_Medium, No_Reply",Rep_Novice,0.9328,1.0014,0.045
+No_Reply,Rep_Novice,0.9328,1.0014,0.921
+Len_Medium,No_Reply,0.9886,1.0013,0.4444
+"Rating_Medium_3_4, Len_Medium",Rep_Novice,0.9321,1.0006,0.046
+"Rating_High_5, No_Reply",Rep_Novice,0.9319,1.0005,0.705
+"Engage_Low, Len_Medium, Rating_High_5",No_Reply,0.9877,1.0004,0.0398
+"Len_Medium, Rep_Novice, No_Reply",Rating_High_5,0.7607,1.0001,0.3168
+Rep_Novice,Rating_High_5,0.7602,0.9994,0.7081
+Rating_High_5,Rep_Novice,0.9309,0.9994,0.7081
+"Len_Long, Rep_Novice",No_Reply,0.9853,0.9979,0.3058
+"Engage_Low, Rep_Novice",No_Reply,0.9853,0.9979,0.1292
+Engage_Low,No_Reply,0.9848,0.9974,0.1427
+"Rep_Veteran, Rating_High_5",No_Reply,0.9835,0.9961,0.0458
+Len_Long,No_Reply,0.983,0.9956,0.3334
+Len_Medium,Rating_High_5,0.757,0.9953,0.3403
+"Len_Medium, Rep_Novice",Rating_High_5,0.7561,0.9941,0.3181
+"Engage_Medium, Rating_High_5",No_Reply,0.9802,0.9928,0.0381
+"Engage_Medium, Rating_High_5, Rep_Novice",No_Reply,0.9795,0.992,0.0315
+"Rating_Medium_3_4, Len_Medium, Rep_Novice",No_Reply,0.9785,0.991,0.045
+"Rating_Medium_3_4, Len_Medium",No_Reply,0.9777,0.9903,0.0483
+"Rating_Medium_3_4, Rep_Novice",No_Reply,0.9767,0.9892,0.1059
+"Engage_Low, Len_Medium, Rep_Novice",No_Reply,0.9761,0.9886,0.0493
+"Rating_Medium_3_4, No_Reply",Rep_Novice,0.9202,0.9879,0.1059
+Rating_Medium_3_4,No_Reply,0.9753,0.9878,0.1151
+"Engage_Low, Len_Medium",No_Reply,0.9745,0.987,0.0546
+Rating_Medium_3_4,Rep_Novice,0.9189,0.9865,0.1084
+Rep_Veteran,No_Reply,0.9735,0.986,0.0586
+"Len_Long, No_Reply",Rep_Novice,0.9173,0.9848,0.3058
+"Engage_Low, No_Reply",Rating_High_5,0.749,0.9848,0.1069
+"Len_Long, Rating_High_5, No_Reply",Rep_Novice,0.9168,0.9842,0.235
+Len_Long,Rep_Novice,0.9152,0.9825,0.3104
+"Len_Long, Rating_High_5",Rep_Novice,0.9149,0.9822,0.2366
+"Rating_0_Unrated, Len_Medium, Rep_Novice",No_Reply,0.9671,0.9795,0.0437
+"Rating_Medium_3_4, Len_Long, Rep_Novice",No_Reply,0.967,0.9794,0.0419
+"Rating_Medium_3_4, Rep_Novice, No_Reply",Engage_Zero,0.7195,0.9792,0.0762
+"Engage_Low, Rep_Novice, No_Reply",Rating_High_5,0.7447,0.9791,0.0962
+"Rating_0_Unrated, Rep_Novice",Engage_Zero,0.7191,0.9787,0.0639
+"Rating_Medium_3_4, Len_Long",No_Reply,0.9644,0.9767,0.0461
+Engage_Low,Rating_High_5,0.7422,0.9758,0.1075
+"Rating_0_Unrated, Len_Medium",No_Reply,0.9631,0.9754,0.0459
+"Rating_0_Unrated, Rep_Novice",No_Reply,0.9623,0.9746,0.0855
+"Rating_Medium_3_4, Len_Long, No_Reply",Rep_Novice,0.907,0.9738,0.0419
+"Engage_Low, No_Reply",Rep_Novice,0.9059,0.9726,0.1292
+Engage_Low,Rep_Novice,0.9055,0.9721,0.1312
+Engage_Medium,No_Reply,0.9591,0.9714,0.0542
+"Rating_Medium_3_4, Len_Long",Rep_Novice,0.9046,0.9711,0.0433
+Rating_0_Unrated,No_Reply,0.9581,0.9704,0.0894
+"Engage_Low, Rep_Novice",Rating_High_5,0.7379,0.9702,0.0968
+"Engage_Low, Len_Medium, No_Reply",Rep_Novice,0.9033,0.9698,0.0493
+"Engage_Medium, Rep_Novice",No_Reply,0.9571,0.9693,0.0454
+"Engage_Low, Len_Long",Rep_Novice,0.9026,0.969,0.0586
+"Engage_Low, Len_Long, No_Reply",Rep_Novice,0.902,0.9684,0.0582
+"Engage_Low, Len_Medium",Rep_Novice,0.9019,0.9682,0.0505
+"Engage_Low, Rating_High_5, No_Reply",Rep_Novice,0.9007,0.9669,0.0962
+"Engage_Low, Rating_High_5",Rep_Novice,0.9003,0.9665,0.0968
+"Engage_Low, Len_Long, Rating_High_5",Rep_Novice,0.8974,0.9634,0.0447
+"Engage_Low, Len_Long, Rating_High_5, No_Reply",Rep_Novice,0.8971,0.9631,0.0446
+"Engage_Low, Len_Medium, Rating_High_5, No_Reply",Rep_Novice,0.8964,0.9624,0.0357
+Rating_0_Unrated,Engage_Zero,0.707,0.9622,0.0659
+"Rating_Medium_3_4, No_Reply",Engage_Zero,0.7065,0.9616,0.0813
+"Engage_Low, Len_Medium, Rating_High_5",Rep_Novice,0.895,0.9608,0.0361
+"Engage_Low, Len_Medium, No_Reply",Rating_High_5,0.7291,0.9586,0.0398
+"Rating_Medium_3_4, Rep_Novice",Engage_Zero,0.7027,0.9564,0.0762
+"Engage_High, Rating_High_5, Rep_Novice",No_Reply,0.9422,0.9542,0.0305
+"Engage_Low, Len_Medium, Rep_Novice, No_Reply",Rating_High_5,0.7235,0.9513,0.0357
+"Engage_Low, Len_Medium",Rating_High_5,0.7193,0.9458,0.0403
+"Engage_High, Rating_High_5",No_Reply,0.9316,0.9435,0.0367
+"Engage_Low, Len_Medium, Rep_Novice",Rating_High_5,0.7138,0.9385,0.0361
+Rating_Medium_3_4,Engage_Zero,0.689,0.9378,0.0813
+"Engage_Medium, No_Reply",Rating_High_5,0.7036,0.925,0.0381
+"Engage_Medium, Rep_Novice, No_Reply",Rating_High_5,0.6933,0.9116,0.0315
+"Engage_High, No_Reply",Rep_Novice,0.8481,0.9105,0.0473
+Engage_Medium,Rating_High_5,0.6884,0.9051,0.0389
+Engage_High,Rep_Novice,0.8425,0.9045,0.0538
+Engage_Medium,Rep_Novice,0.8393,0.9011,0.0474
+"Engage_Medium, No_Reply",Rep_Novice,0.8376,0.8992,0.0454
+"Len_Long, Rating_High_5, Rep_Novice, No_Reply",Engage_Zero,0.6597,0.8979,0.155
+"Len_Long, Rating_High_5, Rep_Novice",Engage_Zero,0.6553,0.8919,0.155
+"Engage_High, Rating_High_5, No_Reply",Rep_Novice,0.8306,0.8917,0.0305
+"Engage_Medium, Rep_Novice",Rating_High_5,0.6775,0.8908,0.0321
+"Engage_High, Rep_Novice",No_Reply,0.8784,0.8897,0.0473
+"Engage_High, Len_Long",Rep_Novice,0.8283,0.8893,0.0302
+"Engage_High, Len_Long",No_Reply,0.8765,0.8877,0.032
+"Engage_Medium, Rating_High_5",Rep_Novice,0.826,0.8868,0.0321
+"Engage_Medium, Rating_High_5, No_Reply",Rep_Novice,0.8254,0.8861,0.0315
+Engage_High,No_Reply,0.8726,0.8838,0.0558
+"Engage_High, Rating_High_5",Rep_Novice,0.8212,0.8816,0.0323
+"Len_Long, Rep_Novice, No_Reply",Engage_Zero,0.6462,0.8795,0.1976
+"Len_Long, Rating_High_5, No_Reply",Engage_Zero,0.6417,0.8734,0.1645
+"Len_Long, Rep_Novice",Engage_Zero,0.6367,0.8666,0.1976
+"Len_Long, Rating_High_5",Engage_Zero,0.6361,0.8658,0.1645
+"Engage_High, No_Reply",Rating_High_5,0.6578,0.8648,0.0367
+"Len_Long, No_Reply",Engage_Zero,0.6288,0.8558,0.2096
+"Engage_High, Rep_Novice, No_Reply",Rating_High_5,0.6442,0.847,0.0305
+Len_Long,Engage_Zero,0.6181,0.8412,0.2096
+Engage_High,Rating_High_5,0.6162,0.8101,0.0394
+"Rep_Veteran, No_Reply",Engage_Zero,0.5826,0.7929,0.0342
+"Engage_High, Rep_Novice",Rating_High_5,0.6006,0.7897,0.0323
+Rep_Veteran,Engage_Zero,0.5671,0.7719,0.0342

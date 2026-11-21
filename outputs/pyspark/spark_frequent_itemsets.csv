@@ -1,0 +1,149 @@
+items_str,freq,support_ratio
+No_Reply,17952,0.9874
+Rep_Novice,16936,0.9315
+"Rep_Novice, No_Reply",16745,0.921
+Rating_High_5,13829,0.7606
+"Rating_High_5, No_Reply",13754,0.7565
+Engage_Zero,13359,0.7347
+"Engage_Zero, No_Reply",13359,0.7347
+"Rating_High_5, Rep_Novice",12874,0.7081
+"Rating_High_5, Rep_Novice, No_Reply",12818,0.705
+"Engage_Zero, Rep_Novice",12710,0.699
+"Engage_Zero, Rep_Novice, No_Reply",12710,0.699
+"Engage_Zero, Rating_High_5",10451,0.5748
+"Engage_Zero, Rating_High_5, No_Reply",10451,0.5748
+"Engage_Zero, Rating_High_5, Rep_Novice",9942,0.5468
+"Engage_Zero, Rating_High_5, Rep_Novice, No_Reply",9942,0.5468
+Len_Medium,8173,0.4495
+"Len_Medium, No_Reply",8080,0.4444
+"Len_Medium, Rep_Novice",7650,0.4207
+"Len_Medium, Rep_Novice, No_Reply",7572,0.4165
+"Len_Medium, Engage_Zero",6381,0.351
+"Len_Medium, Engage_Zero, No_Reply",6381,0.351
+"Len_Medium, Rating_High_5",6187,0.3403
+Len_Long,6166,0.3391
+"Len_Medium, Rating_High_5, No_Reply",6156,0.3386
+"Len_Medium, Engage_Zero, Rep_Novice, No_Reply",6090,0.3349
+"Len_Medium, Engage_Zero, Rep_Novice",6090,0.3349
+"Len_Long, No_Reply",6061,0.3334
+"Len_Medium, Rating_High_5, Rep_Novice",5784,0.3181
+"Len_Medium, Rating_High_5, Rep_Novice, No_Reply",5760,0.3168
+"Len_Long, Rep_Novice",5643,0.3104
+"Len_Long, Rep_Novice, No_Reply",5560,0.3058
+"Len_Medium, Engage_Zero, Rating_High_5",4961,0.2729
+"Len_Medium, Engage_Zero, Rating_High_5, No_Reply",4961,0.2729
+"Len_Medium, Engage_Zero, Rating_High_5, Rep_Novice",4731,0.2602
+"Len_Medium, Engage_Zero, Rating_High_5, Rep_Novice, No_Reply",4731,0.2602
+"Len_Long, Rating_High_5",4702,0.2586
+"Len_Long, Rating_High_5, No_Reply",4661,0.2564
+"Len_Long, Rating_High_5, Rep_Novice",4302,0.2366
+"Len_Long, Rating_High_5, Rep_Novice, No_Reply",4273,0.235
+Len_Short,3843,0.2114
+"Len_Long, Engage_Zero",3811,0.2096
+"Len_Long, Engage_Zero, No_Reply",3811,0.2096
+"Len_Short, No_Reply",3811,0.2096
+"Len_Short, Rep_Novice",3643,0.2004
+"Len_Short, Rep_Novice, No_Reply",3613,0.1987
+"Len_Long, Engage_Zero, Rep_Novice, No_Reply",3593,0.1976
+"Len_Long, Engage_Zero, Rep_Novice",3593,0.1976
+"Len_Short, Engage_Zero",3167,0.1742
+"Len_Short, Engage_Zero, No_Reply",3167,0.1742
+"Len_Short, Engage_Zero, Rep_Novice",3027,0.1665
+"Len_Short, Engage_Zero, Rep_Novice, No_Reply",3027,0.1665
+"Len_Long, Engage_Zero, Rating_High_5, No_Reply",2991,0.1645
+"Len_Long, Engage_Zero, Rating_High_5",2991,0.1645
+"Len_Short, Rating_High_5",2940,0.1617
+"Len_Short, Rating_High_5, No_Reply",2937,0.1615
+"Len_Long, Engage_Zero, Rating_High_5, Rep_Novice",2819,0.155
+"Len_Long, Engage_Zero, Rating_High_5, Rep_Novice, No_Reply",2819,0.155
+"Len_Short, Rating_High_5, Rep_Novice",2788,0.1533
+"Len_Short, Rating_High_5, Rep_Novice, No_Reply",2785,0.1532
+Engage_Low,2634,0.1449
+"Engage_Low, No_Reply",2594,0.1427
+"Len_Short, Engage_Zero, Rating_High_5",2499,0.1374
+"Len_Short, Engage_Zero, Rating_High_5, No_Reply",2499,0.1374
+"Len_Short, Engage_Zero, Rating_High_5, Rep_Novice",2392,0.1316
+"Len_Short, Engage_Zero, Rating_High_5, Rep_Novice, No_Reply",2392,0.1316
+"Engage_Low, Rep_Novice",2385,0.1312
+"Engage_Low, Rep_Novice, No_Reply",2350,0.1292
+Rating_Medium_3_4,2145,0.118
+"Rating_Medium_3_4, No_Reply",2092,0.1151
+"Rating_Medium_3_4, Rep_Novice",1971,0.1084
+"Engage_Low, Rating_High_5",1955,0.1075
+"Engage_Low, Rating_High_5, No_Reply",1943,0.1069
+"Rating_Medium_3_4, Rep_Novice, No_Reply",1925,0.1059
+"Engage_Low, Rating_High_5, Rep_Novice",1760,0.0968
+"Engage_Low, Rating_High_5, Rep_Novice, No_Reply",1750,0.0962
+Rating_0_Unrated,1696,0.0933
+"Rating_0_Unrated, No_Reply",1625,0.0894
+"Rating_0_Unrated, Rep_Novice",1616,0.0889
+"Rating_0_Unrated, Rep_Novice, No_Reply",1555,0.0855
+"Rating_Medium_3_4, Engage_Zero, No_Reply",1478,0.0813
+"Rating_Medium_3_4, Engage_Zero",1478,0.0813
+"Rating_Medium_3_4, Engage_Zero, Rep_Novice",1385,0.0762
+"Rating_Medium_3_4, Engage_Zero, Rep_Novice, No_Reply",1385,0.0762
+"Rating_0_Unrated, Engage_Zero",1199,0.0659
+"Rating_0_Unrated, Engage_Zero, No_Reply",1199,0.0659
+"Engage_Low, Len_Long",1181,0.065
+"Engage_Low, Len_Long, No_Reply",1174,0.0646
+"Rating_0_Unrated, Engage_Zero, Rep_Novice",1162,0.0639
+"Rating_0_Unrated, Engage_Zero, Rep_Novice, No_Reply",1162,0.0639
+Engage_High,1162,0.0639
+Rep_Veteran,1095,0.0602
+"Rep_Veteran, No_Reply",1066,0.0586
+"Engage_Low, Len_Long, Rep_Novice",1066,0.0586
+"Engage_Low, Len_Long, Rep_Novice, No_Reply",1059,0.0582
+Engage_Medium,1027,0.0565
+"Engage_Low, Len_Medium",1019,0.056
+"Engage_High, No_Reply",1014,0.0558
+"Engage_Low, Len_Medium, No_Reply",993,0.0546
+"Engage_Medium, No_Reply",985,0.0542
+"Engage_High, Rep_Novice",979,0.0538
+"Engage_Low, Len_Medium, Rep_Novice",919,0.0505
+"Engage_Low, Len_Long, Rating_High_5",906,0.0498
+"Engage_Low, Len_Long, Rating_High_5, No_Reply",904,0.0497
+"Rating_Medium_3_4, Len_Medium",898,0.0494
+"Engage_Low, Len_Medium, Rep_Novice, No_Reply",897,0.0493
+"Rating_Medium_3_4, Len_Medium, No_Reply",878,0.0483
+"Rating_Medium_3_4, Len_Long",870,0.0478
+"Rating_0_Unrated, Len_Medium",867,0.0477
+"Engage_Medium, Rep_Novice",862,0.0474
+"Engage_High, Rep_Novice, No_Reply",860,0.0473
+"Rep_Veteran, Rating_High_5",846,0.0465
+"Rating_Medium_3_4, Len_Long, No_Reply",839,0.0461
+"Rating_Medium_3_4, Len_Medium, Rep_Novice",837,0.046
+"Rating_0_Unrated, Len_Medium, No_Reply",835,0.0459
+"Rep_Veteran, Rating_High_5, No_Reply",832,0.0458
+"Engage_Medium, Rep_Novice, No_Reply",825,0.0454
+"Rating_0_Unrated, Len_Medium, Rep_Novice",821,0.0452
+"Rating_Medium_3_4, Len_Medium, Rep_Novice, No_Reply",819,0.045
+"Engage_Low, Len_Long, Rating_High_5, Rep_Novice",813,0.0447
+"Engage_Low, Len_Long, Rating_High_5, Rep_Novice, No_Reply",811,0.0446
+"Rating_0_Unrated, Len_Medium, Rep_Novice, No_Reply",794,0.0437
+"Rating_Medium_3_4, Len_Long, Rep_Novice",787,0.0433
+"Rating_Medium_3_4, Len_Long, Rep_Novice, No_Reply",761,0.0419
+"Engage_Low, Len_Medium, Rating_High_5",733,0.0403
+"Engage_Low, Len_Medium, Rating_High_5, No_Reply",724,0.0398
+"Engage_High, Rating_High_5",716,0.0394
+"Engage_Medium, Rating_High_5",707,0.0389
+"Engage_Medium, Rating_High_5, No_Reply",693,0.0381
+"Rating_Medium_3_4, Len_Medium, Engage_Zero",679,0.0373
+"Rating_Medium_3_4, Len_Medium, Engage_Zero, No_Reply",679,0.0373
+"Engage_High, Rating_High_5, No_Reply",667,0.0367
+"Engage_High, Len_Long",664,0.0365
+"Engage_Low, Len_Medium, Rating_High_5, Rep_Novice",656,0.0361
+"Engage_Low, Len_Medium, Rating_High_5, Rep_Novice, No_Reply",649,0.0357
+"Rating_Medium_3_4, Len_Medium, Engage_Zero, Rep_Novice",644,0.0354
+"Rating_Medium_3_4, Len_Medium, Engage_Zero, Rep_Novice, No_Reply",644,0.0354
+"Rating_0_Unrated, Len_Medium, Engage_Zero",641,0.0353
+"Rating_0_Unrated, Len_Medium, Engage_Zero, No_Reply",641,0.0353
+"Rep_Veteran, Engage_Zero",621,0.0342
+"Rep_Veteran, Engage_Zero, No_Reply",621,0.0342
+"Rating_0_Unrated, Len_Medium, Engage_Zero, Rep_Novice, No_Reply",618,0.034
+"Rating_0_Unrated, Len_Medium, Engage_Zero, Rep_Novice",618,0.034
+"Engage_High, Rating_High_5, Rep_Novice",588,0.0323
+"Engage_Medium, Rating_High_5, Rep_Novice",584,0.0321
+"Engage_High, Len_Long, No_Reply",582,0.032
+"Engage_Medium, Rating_High_5, Rep_Novice, No_Reply",572,0.0315
+"Engage_High, Rating_High_5, Rep_Novice, No_Reply",554,0.0305
+"Engage_High, Len_Long, Rep_Novice",550,0.0302
